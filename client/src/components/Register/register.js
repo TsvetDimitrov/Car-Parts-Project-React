@@ -1,20 +1,24 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import '../../App.css';
-import { addFocusClass, removeFocusClass } from '../../util/util.js';
-const Register = ({
-    history
-}) => {
+const Register = ({history}) => {
+    //TODO ADD class attribute to focused input tag.
+    let [addClass, setAddClass] = useState('');
+    const [name, setName] = useState("");
+    const [email, setMail] = useState("");
+    const [telNumber, setTelNumber] = useState("");
+    const [password, setPassword] = useState("");
+    const [repeatPass, setRepeatPass] = useState("");
 
-    function onBlur(e) {
+
+    function onBlur() {
         setAddClass('');
     }
 
-    function onFocus(e) {
+    function onFocus() {
         setAddClass('focused');
     }
 
-    const [name, setName] = useState("");
-    let [addClass, setAddClass] = useState('');
     const onRegisterSubmitHandler = (e) => {
         e.preventDefault();
 
@@ -45,35 +49,35 @@ const Register = ({
                                             <span className="required-field">Име</span>
                                             <input type="text" name="name" className="required" value={name} onChange={setName} onBlur={onBlur} onFocus={onFocus} />
                                         </label>
-                                        <label className="field-label">
+                                        <label className={`field-label ${addClass}`}>
                                             <span className="required-field">E-mail</span>
-                                            <input type="text" name="email" className="required" value="" />
+                                            <input type="text" name="email" className="required" value={email} onChange={setMail} onBlur={onBlur} onFocus={onFocus} />
                                         </label>
                                         <label className="field-label">
                                             <span className="required-field">Телефон</span>
-                                            <input type="text" name="telNumber" className="required" value="" />
+                                            <input type="text" name="telNumber" className="required" value={telNumber} onChange={setTelNumber} />
                                         </label>
                                         <label className="field-label">
                                             <span>Парола</span>
-                                            <input type="password" name="password" className="required" value="" />
+                                            <input type="password" name="password" className="required" value={password} onChange={setPassword} />
                                         </label>
                                         <label className="field-label">
                                             <span>Повтори паролата</span>
-                                            <input type="password" name="repeatPass" className="required" value="" />
+                                            <input type="password" name="repeatPass" className="required" value={repeatPass} onChange={setRepeatPass} />
                                         </label>
                                         <div className="agreement">
                                             <label className="field-label checkbox-label">
                                                 <input type="checkbox" name="agreement_1" className="required" value="1" />
                                                 <span className="required-field">Съгласен съм с <a
                                                     href="/usloviya-za-polzvane">условията за ползване</a>
-                                                и <a href="/privacy-policy">политиката за защита на лични данни</a> и имам
+                                                и <Link to="/privacy-policy">политиката за защита на лични данни</Link> и имам
                                                 навършени 14 години.
                                             </span>
                                             </label>
                                             <label className="field-label checkbox-label">
                                                 <input type="checkbox" name="agreement_2" className="required" value="1" />
-                                                <span className="required-field"> Съгласен съм с <a href="/obshti-usloviya">общите
-                                                    условия</a> на търговеца</span>
+                                                <span className="required-field"> Съгласен съм с <Link to="/obshti-usloviya">общите
+                                                    условия</Link> на търговеца</span>
                                             </label>
                                         </div>
                                         <div className="register-btn">
@@ -97,14 +101,14 @@ const Register = ({
                                 <div className="separator"></div>
                                 <div className="existing-user">
                                     <span className="existing-user-text">Вече имате профил?</span>
-                                    <a href="/login">Вход</a>
+                                    <Link to="/login">Вход</Link>
                                 </div>
                             </div>
                             <div className="back-to-site">
-                                <a href="/" className="text-body-dark">
+                                <Link to="/" className="text-body-dark">
                                     <span className="back-to-site-icon"></span>
                                     <span>Назад към сайта</span>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
