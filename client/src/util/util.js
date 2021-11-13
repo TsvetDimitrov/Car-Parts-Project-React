@@ -1,4 +1,5 @@
 export function addFocusClass(e) {
+    console.log(e.path);
     const el = e.path[1];
     el.classList.add('focused');
     return el;
