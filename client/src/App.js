@@ -1,5 +1,5 @@
 import { Routes ,Route, Redirect } from 'react-router-dom';
-import "./App.module.css";
+import "./App.css";
 import Register from './components/Register/register.js';
 
 function App() {

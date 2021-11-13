@@ -41,7 +41,7 @@
 .field-label span:first-child {
     top: 17px;
     display: block!important;
-    position: absolute;
+    /* position: absolute; */ /* Event listener for focus and move span to the top */
     left: 16px;
     color: #999;
     background-color: #fff;
