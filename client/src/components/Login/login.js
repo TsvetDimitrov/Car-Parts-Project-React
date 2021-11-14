@@ -22,7 +22,7 @@ const Login = ({ history }) => {
                     <div className="main">
                         <div className="inner">
                             <div className="inner-inner">
-                                <a href="/" className="logo bg"></a>
+                                <Link to="/" className="logo bg"></Link>
                                 <h1 className="title">Вход</h1>
                                 <div className="member-form">
                                     <form onSubmit={onLoginFormSubmitHandler} method="POST" className="form-horizontal" name="memberLoginForm"
