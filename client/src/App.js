@@ -1,10 +1,10 @@
 import { Routes, Route, Redirect } from 'react-router-dom';
 import "./App.css";
 
-import Navigation from "./components/Navigation/navigation.js";
+import Navigation from "./components/Navigation/Navigation.js";
 
-import Register from './components/Register/register.js';
-import Login from './components/Login/login.js';
+import Register from './components/Register/Register.js';
+import Login from './components/Login/Login.js';
 
 function App() {
   return (
