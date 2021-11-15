@@ -1,18 +1,23 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { login } from '../../api/data.js';
 
-const Login = ({ history }) => {
-    const onLoginFormSubmitHandler = (e) => {
+const Login = () => {
+    const navigate = useNavigate();
+    const onLoginFormSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-
+        const email = e.target.email.value.trim();
+        const password = e.target.password.value.trim();
         console.log(email, password);
 
-        // auth.signInWithEmailAndPassword(email, password)
-        //     .then((userCredential) => {
-        //         history.push('/');
-        //     });
+        if (!email || !password) {
+            return alert('All fields are required!');
+        }
+
+
+        await login(email, password);
+        navigate('/');
     };
 
     return (
