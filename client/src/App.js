@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Navigation />
       <Routes>
-        {/* <Route exact path = "/" element={<Home />} /> */}
+        <Route exact path = "/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
       </Routes>
