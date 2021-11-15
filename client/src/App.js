@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation/Navigation.js";
 import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
 import Footer from './components/Footer/Footer.js';
+import AboutUs from './components/AboutUs/AboutUs.js';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
+        <Route exact path="/aboutUs" element={<AboutUs />} />
       </Routes>
       <Footer />
     </div>
