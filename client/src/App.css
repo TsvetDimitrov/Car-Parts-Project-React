@@ -125,7 +125,7 @@ body {
     background: url(./images/car-icon-header-nav.ico) no-repeat center center;
 }
 
-.topnav>.innerTopNav .guest{
+.topnav>.innerTopNav .guest, .topnav>.innerTopNav .admin, .topnav>.innerTopNav .user{
     display: inline-block;
 }
 
