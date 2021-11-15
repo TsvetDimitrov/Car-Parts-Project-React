@@ -8,6 +8,7 @@ import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
 import Footer from './components/Footer/Footer.js';
 import AboutUs from './components/AboutUs/AboutUs.js';
+import Page404 from './components/Page404/Page404.js';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/aboutUs" element={<AboutUs />} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
     </div>
