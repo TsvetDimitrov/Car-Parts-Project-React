@@ -125,6 +125,10 @@ body {
     background: url(./images/car-icon-header-nav.ico) no-repeat center center;
 }
 
+.topnav>.innerTopNav .guest{
+    display: inline-block;
+}
+
 .topnav>.innerTopNav>.tab>.redemption-car>.text {
     display: inline-block;
     vertical-align: middle;

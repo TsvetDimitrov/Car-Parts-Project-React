@@ -1,4 +1,4 @@
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../../App.css';
 
 
@@ -7,21 +7,6 @@ function Navigation() {
 
     const userId = sessionStorage.getItem('userId');
     const isAdmin = sessionStorage.getItem('isAdmin');
-    if (userId != null) {
-        document.querySelector('.guest').style.display = 'none';;
-        document.querySelector('.user').style.display = 'inline-block';
-    } else {
-        document.querySelector('.guest').style.display = 'inline-block';
-        document.querySelector('.user').style.display = 'none';
-    }
-
-    if (isAdmin == 1) {
-        document.querySelector('.admin').style.display = 'inline-block';
-    } else {
-        document.querySelector('.admin').style.display = 'none';
-
-    }
-
 
     return (
         <div className="topnav">
@@ -37,7 +22,7 @@ function Navigation() {
                     </Link>
                 </div>
                 <div className="elements">
-                    <div className="admin">
+                    {isAdmin ? (<div className="admin">
                         <span className="icon-dropdown"></span>
                         <div className="dropdown-content">
                             <Link to="/create" className="create-part">
@@ -49,27 +34,31 @@ function Navigation() {
                                 <span className="text">Обяви за продажба</span>
                             </Link>
                         </div>
-                    </div>
+                    </div>) : ''}
+
                     <Link to="tel: 0893496566" className="element phone">
                         <span className="icon"></span>
                         <span className="text">+359893496566</span>
                     </Link>
-                    <div className="guest">
+                    {userId ? (
+                        <div className="user">
+                            <Link to="javascript:void(0)" className="element logout">
+                                <span className="icon"></span>
+                                <span className="text">Изход</span>
+                            </Link>
+                        </div>
+                    ) : (<div className="guest">
                         <Link to="/login" className="element login">
                             <span className="icon"></span>
                             <span className="text">Вход</span>
                         </Link>
-                    </div>
-                    <div className="user">
-                        <Link to="javascript:void(0)" className="element logout">
-                            <span className="icon"></span>
-                            <span className="text">Изход</span>
-                        </Link>
-                    </div>
+                    </div>)}
 
-                    <Link to="/cart" className="element cart">
 
-                    </Link>
+
+                    <Link to="/cart" className="element cart"></Link>
+
+
                 </div>
             </div>
 
