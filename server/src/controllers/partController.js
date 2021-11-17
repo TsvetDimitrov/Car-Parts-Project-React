@@ -2,7 +2,7 @@ const router = require('express').Router();
 const userService = require('../services/userService');
 const { getPartTypeMapping } = require('../utils/utils');
 
-router.post('/create', async(req, res) => {
+router.post('/create', async (req, res) => {
     try {
         await req.storage.createPart(req.body);
 
@@ -13,7 +13,7 @@ router.post('/create', async(req, res) => {
     }
 });
 
-router.get('/navigationSystems', async(req, res) => {
+router.get('/navigationSystems', async (req, res) => {
     try {
         let products = await req.storage.getNavigationSystems();
 
@@ -24,7 +24,7 @@ router.get('/navigationSystems', async(req, res) => {
     }
 });
 
-router.get('/getPartsByType/:type', async(req, res) => {
+router.get('/getPartsByType/:type', async (req, res) => {
     try {
         const partType = getPartTypeMapping(req.params.type);
         if (!partType) {
@@ -32,14 +32,14 @@ router.get('/getPartsByType/:type', async(req, res) => {
         }
         let parts = await req.storage.getPartsByType(partType);
 
-        res.status(200).json({ parts, partType });
+        res.status(200).json([parts, partType]);
     } catch (err) {
         console.log(err.message);
         res.status(400).json({ ok: false, message: err.message });
     }
 });
 
-router.get('/getPartsByBrand/:brand', async(req, res) => {
+router.get('/getPartsByBrand/:brand', async (req, res) => {
     try {
         const brandNameTitle = req.params.brand;
 
@@ -52,7 +52,7 @@ router.get('/getPartsByBrand/:brand', async(req, res) => {
     }
 });
 
-router.get('/cart', async(req, res) => {
+router.get('/cart', async (req, res) => {
     try {
         await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
@@ -69,7 +69,7 @@ router.get('/cart', async(req, res) => {
 
 
 
-router.get('/:id', async(req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const product = await req.storage.getPartById(req.params.id);
         res.status(200).json(product);
@@ -80,7 +80,7 @@ router.get('/:id', async(req, res) => {
 
 });
 
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
     try {
         const products = await req.storage.getAllParts();
 
@@ -91,7 +91,7 @@ router.get('/', async(req, res) => {
     }
 });
 
-router.post('/add/:id', async(req, res) => {
+router.post('/add/:id', async (req, res) => {
     try {
         await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
@@ -108,7 +108,7 @@ router.post('/add/:id', async(req, res) => {
     }
 });
 
-router.delete('/delete/:id', async(req, res) => {
+router.delete('/delete/:id', async (req, res) => {
     try {
         await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
@@ -124,7 +124,7 @@ router.delete('/delete/:id', async(req, res) => {
     }
 });
 
-router.put('/edit/:id', async(req, res) => {
+router.put('/edit/:id', async (req, res) => {
     try {
         const partId = req.params.id;
         const partData = req.body;
@@ -136,7 +136,7 @@ router.put('/edit/:id', async(req, res) => {
     }
 });
 
-router.post('/cart/delete/:id', async(req, res) => {
+router.post('/cart/delete/:id', async (req, res) => {
     try {
         let productId = req.params.id;
         await req.auth.getToken();
