@@ -1027,7 +1027,6 @@ function Create() {
         });
     }
     
-    
     function applyDropdown() {
         const selectCategoryValue = document.querySelector('[name="category"]').value;
         const applyTypesData = document.querySelector('[name="type"]');
@@ -1035,9 +1034,6 @@ function Create() {
     
     }
     
-    function afterDocumentLoads() {
-        applyDropdown();
-    }
     
     function applyBrandDropdown() {
         const selectedBrand = document.querySelector('[name="brand"]').value;
