@@ -1,8 +1,29 @@
 import { Link } from 'react-router-dom';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+
 import { login } from '../../api/data.js';
 
 const Login = () => {
+    let [addEmailClass, setAddEmailClass] = useState('');
+    let [addPasswordClass, setAddPasswordClass] = useState('');
+
+    function onBlurEmail() {
+        setAddEmailClass('');
+    }
+
+    function onFocusEmail() {
+        setAddEmailClass('focused');
+    }
+
+    function onBlurPassword() {
+        setAddPasswordClass('');
+    }
+
+    function onFocusPassword(){
+        setAddPasswordClass('focused');
+    }
+
     const navigate = useNavigate();
     const onLoginFormSubmitHandler = async (e) => {
         e.preventDefault();
@@ -32,13 +53,13 @@ const Login = () => {
                                 <div className="member-form">
                                     <form onSubmit={onLoginFormSubmitHandler} method="POST" className="form-horizontal" name="memberLoginForm"
                                         id="memberLoginForm">
-                                        <label className="field-label">
+                                        <label className={`field-label ${addEmailClass}`}>
                                             <span className="required-field">E-mail</span>
-                                            <input type="text" name="email" className="required" />
+                                            <input type="text" name="email" className="required" onBlur={onBlurEmail} onFocus={onFocusEmail} />
                                         </label>
-                                        <label className="field-label">
+                                        <label className={`field-label ${addPasswordClass}`}>
                                             <span className="required-field">Парола</span>
-                                            <input type="password" name="password" className="required" />
+                                            <input type="password" name="password" className="required" onBlur={onBlurPassword} onFocus={onFocusPassword} />
                                         </label>
                                         <div className="login-btn">
                                             <button type="submit" className="button-animate-login">
