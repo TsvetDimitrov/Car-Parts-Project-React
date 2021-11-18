@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import '../../App.css';
-
+import {logout} from '../../api/data.js';
 
 function Navigation() {
 
@@ -8,6 +8,13 @@ function Navigation() {
     const userId = sessionStorage.getItem('userId');
     const isAdmin = sessionStorage.getItem('isAdmin');
 
+
+    async function onClickLogoutHandler(){
+        console.log('Log out');
+        await logout();
+
+        return window.location.href = '/';
+    }
     return (
         <div className="topnav">
             <div className="innerTopNav">
@@ -42,7 +49,7 @@ function Navigation() {
                     </Link>
                     {userId ? (
                         <div className="user">
-                            <Link to="javascript:void(0)" className="element logout">
+                            <Link to="javascript:void(0)" onClick={onClickLogoutHandler} className="element logout">
                                 <span className="icon"></span>
                                 <span className="text">Изход</span>
                             </Link>

@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import '../../App.css';
+import { register } from '../../api/data.js';
 const Register = ({ history }) => {
     //TODO ADD class attribute to focused input tag.
     let [addNameClass, setAddNameClass] = useState('');
@@ -67,14 +68,29 @@ const Register = ({ history }) => {
         setAddRepeatPassClass('focused');
     }
 
+    const navigate = useNavigate();
 
-    const onRegisterSubmitHandler = (e) => {
+    const onRegisterSubmitHandler = async (e) => {
         e.preventDefault();
+        const name = e.target.name.value.trim();
+        const email = e.target.email.value.trim();
+        const telNumber = e.target.telNumber.value.trim();
+        const password = e.target.password.value.trim();
+        const repeatPass = e.target.repeatPass.value.trim();
+        const agreement_1 = e.target.agreement_1.checked;
+        const agreement_2 = e.target.agreement_2.checked;
 
-        const username = e.target.username.value;
-        const password = e.target.password.value;
+        if (!name || !email || !telNumber || !password || !repeatPass || !agreement_1 || !agreement_2) {
+            return alert('All fields are required!');
+        }
 
-        console.log(username, password);
+        if (password != repeatPass) {
+            return alert('Passwords don\'t match');
+        }
+
+        await register(name, email, telNumber, password);
+        navigate('/');
+
         // auth.createUserWithEmailAndPassword(username, password)
         //     .then(userCredential => {
         //         console.log('Register');
@@ -116,7 +132,7 @@ const Register = ({ history }) => {
                                         </label>
                                         <div className="agreement">
                                             <label className="field-label checkbox-label">
-                                                <input type="checkbox" name="agreement_1" className="required" value="1" />
+                                                <input type="checkbox" name="agreement_1" className="required" />
                                                 <span className="required-field">Съгласен съм с <a
                                                     href="/usloviya-za-polzvane">условията за ползване</a>
                                                 и <Link to="/privacy-policy">политиката за защита на лични данни</Link> и имам
@@ -124,7 +140,7 @@ const Register = ({ history }) => {
                                             </span>
                                             </label>
                                             <label className="field-label checkbox-label">
-                                                <input type="checkbox" name="agreement_2" className="required" value="1" />
+                                                <input type="checkbox" name="agreement_2" className="required" />
                                                 <span className="required-field"> Съгласен съм с <Link to="/obshti-usloviya">общите
                                                     условия</Link> на търговеца</span>
                                             </label>

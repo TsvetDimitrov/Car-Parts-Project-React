@@ -12,6 +12,7 @@ import Buyout from './components/Buyout/Buyout.js';
 import Page404 from './components/Page404/Page404.js';
 import Create from './components/Create/Create.js';
 import PartsCatalog from './components/PartsCatalog/PartsCatalog.js';
+import Details from './components/Details/Details.js';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/create" element={<Create />} />
         <Route path="*" element={<Page404 />} />
         <Route path="/products/:productCategory" element={<PartsCatalog />} />
+        <Route path="/product/:productId" element={<Details />} />
       </Routes>
       <Footer />
     </div>

@@ -72,6 +72,7 @@ router.get('/cart', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const product = await req.storage.getPartById(req.params.id);
+        console.log(product);
         res.status(200).json(product);
     } catch (err) {
         console.log(err.message);
