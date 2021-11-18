@@ -8,19 +8,23 @@ const Login = () => {
     let [addEmailClass, setAddEmailClass] = useState('');
     let [addPasswordClass, setAddPasswordClass] = useState('');
 
-    function onBlurEmail() {
-        setAddEmailClass('');
+    function onBlurEmail(e) {
+        if (!e.target.value) {
+            setAddEmailClass('');
+        }
     }
 
     function onFocusEmail() {
         setAddEmailClass('focused');
     }
 
-    function onBlurPassword() {
-        setAddPasswordClass('');
+    function onBlurPassword(e) {
+        if (!e.target.value) {
+            setAddPasswordClass('');
+        }
     }
 
-    function onFocusPassword(){
+    function onFocusPassword() {
         setAddPasswordClass('focused');
     }
 

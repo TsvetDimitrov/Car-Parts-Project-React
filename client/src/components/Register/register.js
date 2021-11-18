@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import '../../App.css';
-const Register = ({history}) => {
+const Register = ({ history }) => {
     //TODO ADD class attribute to focused input tag.
     let [addNameClass, setAddNameClass] = useState('');
     let [addEmailClass, setAddEmailClass] = useState('');
     let [addTelNumberClass, setAddTelNumberClass] = useState('');
     let [addPasswordClass, setAddPasswordClass] = useState('');
     let [addRepeatPassClass, setAddRepeatPassClass] = useState('');
-    
+
     const [name, setName] = useState("");
     const [email, setMail] = useState("");
     const [telNumber, setTelNumber] = useState("");
@@ -16,44 +16,54 @@ const Register = ({history}) => {
     const [repeatPass, setRepeatPass] = useState("");
 
     //TODO make it abstract. 
-    function onBlurName() {
-        setAddNameClass('');
+    function onBlurName(e) {
+        if (!e.target.value) {
+            setAddNameClass('');
+        }
     }
 
     function onFocusName() {
         setAddNameClass('focused');
     }
 
-    function onBlurEmail(){
-        setAddEmailClass('');
+    function onBlurEmail(e) {
+        if (!e.target.value) {
+            setAddEmailClass('');
+        }
     }
 
-    function onFocusEmail(){
+    function onFocusEmail() {
         setAddEmailClass('focused');
     }
 
-    function onBlurTelNumber(){
-        setAddTelNumberClass('');
+    function onBlurTelNumber(e) {
+        if (!e.target.value) {
+            setAddTelNumberClass('');
+        }
     }
 
-    function onFocusTelNumber(){
+    function onFocusTelNumber() {
         setAddTelNumberClass('focused');
     }
 
-    function onBlurPassword(){
-        setAddPasswordClass('');
+    function onBlurPassword(e) {
+        if (!e.target.value) {
+            setAddPasswordClass('');
+        }
     }
 
-    function onFocusPassword(){
+    function onFocusPassword() {
         setAddPasswordClass('focused');
 
     }
 
-    function onBlurRepeatPass(){
-        setAddRepeatPassClass('');
+    function onBlurRepeatPass(e) {
+        if (!e.target.value) {
+            setAddRepeatPassClass('');
+        }
     }
 
-    function onFocusRepeatPass(){
+    function onFocusRepeatPass() {
         setAddRepeatPassClass('focused');
     }
 
@@ -86,23 +96,23 @@ const Register = ({history}) => {
                                         id="memberLoginForm">
                                         <label className={`field-label ${addNameClass}`}>
                                             <span className="required-field">Име</span>
-                                            <input type="text" name="name" className="required" value={name} onChange={setName} onBlur={onBlurName} onFocus={onFocusName} />
+                                            <input type="text" name="name" className="required" onChange={setName} onBlur={onBlurName} onFocus={onFocusName} />
                                         </label>
                                         <label className={`field-label ${addEmailClass}`}>
                                             <span className="required-field">E-mail</span>
-                                            <input type="text" name="email" className="required" value={email} onChange={setMail} onBlur={onBlurEmail} onFocus={onFocusEmail} />
+                                            <input type="text" name="email" className="required" onChange={setMail} onBlur={onBlurEmail} onFocus={onFocusEmail} />
                                         </label>
                                         <label className={`field-label ${addTelNumberClass}`}>
                                             <span className="required-field">Телефон</span>
-                                            <input type="text" name="telNumber" className="required" value={telNumber} onChange={setTelNumber} onBlur={onBlurTelNumber} onFocus={onFocusTelNumber} />
+                                            <input type="text" name="telNumber" className="required" onChange={setTelNumber} onBlur={onBlurTelNumber} onFocus={onFocusTelNumber} />
                                         </label>
                                         <label className={`field-label ${addPasswordClass}`}>
                                             <span>Парола</span>
-                                            <input type="password" name="password" className="required" value={password} onChange={setPassword} onBlur={onBlurPassword} onFocus={onFocusPassword}/>
+                                            <input type="password" name="password" className="required" onChange={setPassword} onBlur={onBlurPassword} onFocus={onFocusPassword} />
                                         </label>
                                         <label className={`field-label ${addRepeatPassClass}`}>
                                             <span>Повтори паролата</span>
-                                            <input type="password" name="repeatPass" className="required" value={repeatPass} onChange={setRepeatPass} onBlur={onBlurRepeatPass} onFocus={onFocusRepeatPass}/>
+                                            <input type="password" name="repeatPass" className="required" onChange={setRepeatPass} onBlur={onBlurRepeatPass} onFocus={onFocusRepeatPass} />
                                         </label>
                                         <div className="agreement">
                                             <label className="field-label checkbox-label">
