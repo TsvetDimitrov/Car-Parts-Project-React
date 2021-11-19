@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 
+import { createPart } from '../../api/data.js';
 
 
 function Create() {
-
+    const navigate = useNavigate();
     let categoryItemsData = [
         ['Аудио, видео, навигации', 'CD Чейнджъри'],
         ['Аудио, видео, навигации', 'DVD и TV приемници'],
@@ -208,10 +210,9 @@ function Create() {
         ['Части за купето - малогабаритни', 'Прагове - външни'],
         ['Части за купето - малогабаритни', 'Пръскалки - фарове, стъкла'],
         ['Части за купето - малогабаритни', 'Чистачки и рамена за чистачки'],
-    
+
     ];
-    
-    
+
     let brandsModelsData = [
         ['ABARTH', '124'],
         ['ABARTH', '500'],
@@ -1016,7 +1017,7 @@ function Create() {
         const filteredArray = data.filter(r => r[0] === level1Filter);
         const uniqueOptions = new Set();
         filteredArray.forEach(r => uniqueOptions.add(r[1]));
-    
+
         const uniqueList = [...uniqueOptions];
         const selectLevel2 = applyData;
         selectLevel2.innerHTML = '';
@@ -1026,25 +1027,44 @@ function Create() {
             selectLevel2.appendChild(option);
         });
     }
-    
+
     function applyDropdown() {
         const selectCategoryValue = document.querySelector('[name="category"]').value;
         const applyTypesData = document.querySelector('[name="type"]');
         makeDropDown(categoryItemsData, selectCategoryValue, applyTypesData);
-    
+
     }
-    
-    
+
+
     function applyBrandDropdown() {
         const selectedBrand = document.querySelector('[name="brand"]').value;
         const applyModelsData = document.querySelector('[name="model"]');
-    
+
         makeDropDown(brandsModelsData, selectedBrand, applyModelsData);
     }
 
-    const onCreateSubmitHandler = () => {
+    const onCreateSubmitHandler = async (e) => {
+        e.preventDefault();
 
+        const category = e.target.category.value.trim();
+        const type = e.target.type.value.trim();
+        const brand = e.target.brand.value.trim();
+        const model = e.target.model.value.trim();
+        const yearFrom = e.target.yearFrom.value.trim();
+        const yearTo = e.target.yearTo.value.trim();
+        const engineType = e.target.engineType.value.trim();
+        const partColor = e.target.partColor.value.trim();
+        const imageUrl = e.target.imageUrl.value.trim();
+        const condition = e.target.condition.value.trim();
+        const title = e.target.title.value.trim();
+        const price = e.target.price.value.trim();
 
+        if (!category || !type || !brand || !model || !title || !price) {
+            return alert('Category, type, brand, model, title and price are required!');
+        }
+
+        await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price);
+        navigate('/');
     }
 
 
