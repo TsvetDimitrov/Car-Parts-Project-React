@@ -14,6 +14,7 @@ import Create from './components/Create/Create.js';
 import PartsCatalog from './components/PartsCatalog/PartsCatalog.js';
 import BrandCatalog from './components/PartsCatalog/BrandCatalog.js';
 import Details from './components/Details/Details.js';
+import Cart from './components/Cart/Cart.js';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/aboutUs" element={<AboutUs />} />
         <Route exact path="/izkupuvane" element={<Buyout />} />
         <Route exact path="/create" element={<Create />} />
+        <Route exact path="/cart" element={<Cart />} />
         <Route path="*" element={<Page404 />} />
         <Route path="/products/:productCategory" element={<PartsCatalog />} />
         <Route path="/products/brand/:brandName" element={<BrandCatalog />} />
