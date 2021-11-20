@@ -117,7 +117,7 @@ const Details = () => {
                                 </div>
                             </div>
                         </div>
-                        {isAdmin ? <div className="admin-options">
+                        {Number(isAdmin) ? <div className="admin-options">
                             <div onClick={editProduct} className="edit-product">
                                 <button className="edit-button">
                                     <span className="icon"></span>
