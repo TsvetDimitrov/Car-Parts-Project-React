@@ -1,20 +1,16 @@
 import { Link } from "react-router-dom";
 import '../../App.css';
-import {logout} from '../../api/data.js';
-
-function Navigation() {
+import { logout } from '../../api/data.js';
 
 
-    const userId = sessionStorage.getItem('userId');
-    const isAdmin = sessionStorage.getItem('isAdmin');
+const Navigation = ({
+    email,
+    isAdmin,
+}) => {
 
+    console.log(email);
+    console.log(isAdmin);
 
-    async function onClickLogoutHandler(){
-        console.log('Log out');
-        await logout();
-
-        return window.location.href = '/';
-    }
     return (
         <div className="topnav">
             <div className="innerTopNav">
@@ -29,7 +25,7 @@ function Navigation() {
                     </Link>
                 </div>
                 <div className="elements">
-                    {isAdmin ? (<div className="admin">
+                    {Number(isAdmin) ? (<div className="admin">
                         <span className="icon-dropdown"></span>
                         <div className="dropdown-content">
                             <Link to="/create" className="create-part">
@@ -47,9 +43,9 @@ function Navigation() {
                         <span className="icon"></span>
                         <span className="text">+359893496566</span>
                     </Link>
-                    {userId ? (
+                    {email ? (
                         <div className="user">
-                            <Link to="javascript:void(0)" onClick={onClickLogoutHandler} className="element logout">
+                            <Link to="/logout" className="element logout">
                                 <span className="icon"></span>
                                 <span className="text">Изход</span>
                             </Link>

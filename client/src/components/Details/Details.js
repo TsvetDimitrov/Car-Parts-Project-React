@@ -13,7 +13,6 @@ const Details = () => {
         setProduct(result);
     }, []);
 
-    console.log(product);
     const isAdmin = sessionStorage.getItem('isAdmin');
 
     async function addCartProduct() {

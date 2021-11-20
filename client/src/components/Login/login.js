@@ -4,7 +4,9 @@ import { useState } from "react";
 
 import { login } from '../../api/data.js';
 
-const Login = () => {
+const Login = ({
+    onLogin
+}) => {
     let [addEmailClass, setAddEmailClass] = useState('');
     let [addPasswordClass, setAddPasswordClass] = useState('');
 
@@ -34,14 +36,14 @@ const Login = () => {
 
         const email = e.target.email.value.trim();
         const password = e.target.password.value.trim();
-        console.log(email, password);
 
         if (!email || !password) {
             return alert('All fields are required!');
         }
-
-
+    
         await login(email, password);
+        onLogin(email, sessionStorage.getItem('isAdmin'));
+
         navigate('/');
     };
 
