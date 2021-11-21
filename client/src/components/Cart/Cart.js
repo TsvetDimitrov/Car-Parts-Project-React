@@ -20,11 +20,10 @@ const Cart = () => {
     async function deleteProductFromCart(e) {
         e.preventDefault();
         const table = e.target.parentNode.parentNode;
-        console.log(table);
         const id = table.querySelector('.product-title-text').href.split('/')[4];
         await removeProductFromCart(id);
+        table.remove();
         //TODO DON'T RELOAD THE WHOLE PAGE AFTER THE DELETE. 
-        
     }
 
     return (
