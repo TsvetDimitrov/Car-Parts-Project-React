@@ -20,9 +20,11 @@ const Cart = () => {
     async function deleteProductFromCart(e) {
         e.preventDefault();
         const table = e.target.parentNode.parentNode;
+        console.log(table);
         const id = table.querySelector('.product-title-text').href.split('/')[4];
         await removeProductFromCart(id);
         //TODO DON'T RELOAD THE WHOLE PAGE AFTER THE DELETE. 
+        
     }
 
     return (
@@ -49,14 +51,14 @@ const Cart = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.length == 0 ? '' :
+                                    {products.length == 0 ? null :
                                         products.map((product) =>
-                                            <tr className="row" scope="row">
+                                            <tr className="row" scope="row" key={product._id}>
                                                 <th scope="row" className="product-image-title">
                                                     <div className="product-div">
                                                         <img src={product.imageUrl} className="cart-product-image" width="90" height="90" />
-                                                        <div className=" product-title">
-                                                            <h4><Link to="/product/${product._id}" className="product-title-text">{product.title}</Link></h4>
+                                                        <div className="product-title">
+                                                            <h4><Link to={`/product/${product._id}`} className="product-title-text">{product.title}</Link></h4>
                                                         </div>
                                                     </div>
                                                 </th>
