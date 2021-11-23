@@ -1,15 +1,11 @@
 import { Link } from "react-router-dom";
 import './Navigation.css';
-import { logout } from '../../api/data.js';
 
 
 const Navigation = ({
     email,
     isAdmin,
 }) => {
-
-    console.log(email);
-    console.log(isAdmin);
 
     return (
         <div className="topnav">
@@ -56,12 +52,7 @@ const Navigation = ({
                             <span className="text">Вход</span>
                         </Link>
                     </div>)}
-
-
-
                     <Link to="/cart" className="element cart"></Link>
-
-
                 </div>
             </div>
 

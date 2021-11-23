@@ -1,0 +1,299 @@
+#footer {
+    background: url(../../images/footer-img.jpg) no-repeat center top;
+    left: 0;
+    color: rgba(255, 255, 255, 0.6);
+    padding-top: 78px;
+    font-size: 13px;
+    flex-flow: row wrap;
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+}
+
+#footer .footerAbout {
+    float: left;
+    width: 31%;
+    margin-left: 60px;
+    padding-bottom: 20px;
+    margin-right: 30px;
+}
+
+.footerAbout .p {
+    font-size: 13px;
+    line-height: 24px;
+    max-height: 120px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    font-family: roboto, sans-serif;
+}
+
+.footerAbout .map {
+    width: 300px;
+    height: 300px;
+}
+
+.footerAbout .map .imageMap {
+    height: 200px;
+    width: 300px;
+    transition: transform .20s ease-in-out;
+    background: url(../../images/location.png) no-repeat 0 0;
+    background-size: 100%;
+    position: absolute;
+    display: block;
+}
+
+.footerAbout .map .imageMap:hover {
+    transform: scale(1.015, 1.015);
+}
+
+.footerContacts {
+    float: left;
+    width: 22%;
+    padding-right: 2%;
+}
+
+.footerContacts .title_h4 {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    color: white;
+    text-align: center;
+}
+
+.footerContacts .content ul li {
+    list-style: none;
+}
+
+.footerContacts .content .email {
+    text-decoration: none;
+    color: #AAA3A0;
+    font-size: 15px
+}
+
+.footerContacts .footer-loc {
+    font-size: 15px;
+    margin-top: 0px;
+}
+
+.footerContacts .content h6 {
+    font-size: 15px;
+    color: #fff;
+    font-family: sans-serif;
+    margin-bottom: 4px;
+    margin-top: 18px;
+}
+
+.footerContacts .tel-num {
+    font-size: 15px;
+    margin-top: 0px;
+}
+
+.footerContacts .contactsSocialMedia {
+    text-align: center;
+}
+
+.footer_query .queryForm .sendBtn {
+    flex-direction: row;
+    max-width: 50%;
+    position: relative;
+    overflow: hidden;
+    background: #e8281e;
+    border: 1px solid #e8281e;
+    display: flex;
+    width: 100%;
+    height: 48px;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    margin-left: 80px;
+}
+
+.footer_query .queryForm .sendBtn::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: all .25s ease;
+    left: 0;
+    top: 0;
+}
+
+.footer_query .queryForm .sendBtn:hover::before {
+    content: '';
+    background: rgba(255, 255, 255, .15);
+}
+
+.footerContacts .btn {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: #f1f1f1;
+    margin: 5px;
+    border-radius: 30%;
+    box-shadow: 0 5px 15px -5px #00000070;
+    color: #3498db;
+    overflow: hidden;
+    position: relative;
+}
+
+.footerContacts .btn i {
+    line-height: 70px;
+    font-size: 26px;
+    transition: 0.2s linear;
+}
+
+.footerContacts .btn:hover .fa-youtube {
+    transform: scale(1.3);
+    color: #FF0000;
+}
+
+.aboutUsPage {
+    font-size: 22px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.aboutUsPage-pos {
+    text-align: left;
+    padding-left: 40px
+}
+
+.aboutUsPage:hover {
+    text-decoration: underline;
+}
+
+#footer .footerAbout .content .map {
+    margin-bottom: 20px;
+}
+
+.footerContacts .btn:hover .fa-instagram {
+    transform: scale(1.3);
+    color: #8a3ab9;
+}
+
+.footerContacts .btn:hover .fa-facebook-f {
+    transform: scale(1.3);
+    color: #4267B2;
+}
+
+.footerContacts .btn::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: #3498db;
+    transform: rotate(45deg);
+    left: -110%;
+    top: 90%;
+}
+
+.footerContacts .btn:hover::before {
+    animation: aaa 0.7s 1;
+    top: -10%;
+    left: -10%;
+}
+
+.footerContacts .content .footer-logo {
+    width: 120px;
+    height: 98px;
+    background-size: cover;
+    margin-bottom: -15px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.footerContacts .content .logo a {
+    left: 51%;
+    position: absolute;
+    display: block;
+    width: 95px;
+    height: 90px;
+    background: url(../../images/rsz_logo-firm.png) no-repeat 0 0;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+.footerContacts .content .logo a {
+    transition: transform .5s ease-in-out;
+    transform: scale(1.0, 1.0);
+}
+
+.footerContacts .content .logo:hover a {
+    transform: scale(1.12, 1.12);
+    transition: transform .4s ease-in-out;
+}
+
+@keyframes aaa {
+    0% {
+        left: -110%;
+        top: 90%;
+    }
+    50% {
+        left: 10%;
+        top: -30%;
+    }
+    100% {
+        top: -10%;
+        left: -10%;
+    }
+}
+
+.footer_query {
+    float: left;
+    width: 22%;
+    padding-left: 55px;
+    padding-right: 2%;
+}
+
+.footer_query .title_h4 {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    color: white;
+    text-align: center;
+}
+
+.footer_query .queryForm {
+    padding-top: 30px;
+}
+
+.footer_query .queryForm .in_email {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 18px;
+}
+
+.footer_query .queryForm .in_telephone {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 18px;
+}
+
+.footer_query .queryForm .in_firm {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 18px;
+}
+
+.footer_query .queryForm .in_text {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 18px;
+}
+
+#footer .container .modules .footerContacts .content .logo {
+    display: inline-block;
+    height: 84px;
+    width: 84px;
+    text-align: left;
+}
