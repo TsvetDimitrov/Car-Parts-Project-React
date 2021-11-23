@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import '../../App.css';
+import './Navigation.css';
 import { logout } from '../../api/data.js';
 
 
