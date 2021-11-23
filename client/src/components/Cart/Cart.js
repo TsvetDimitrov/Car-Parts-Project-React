@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { getUserCartProducts, removeProductFromCart } from '../../api/data.js';
-
+import './Cart.css';
 
 const Cart = () => {
     const [products, setProducts] = useState([]);
+    const navigate = useNavigate();
 
-    
+
+
     useEffect(() => {
+        if (!sessionStorage.getItem('email')) {
+            navigate('/login');
+            alert('You need to login first!');
+            return null;
+        }
+
         getUserCartProducts()
             .then(result => {
                 setProducts(result.userOrders);
             })
     }, []);
 
+
     console.log(products);
-    const navigate = useNavigate();
 
     async function deleteProductFromCart(e) {
         e.preventDefault();
