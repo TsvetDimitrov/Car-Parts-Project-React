@@ -11,6 +11,8 @@ import Logout from './components/Logout/Logout.js';
 import Footer from './components/Footer/Footer.js';
 import AboutUs from './components/AboutUs/AboutUs.js';
 import Buyout from './components/Buyout/Buyout.js';
+import BuyoutInfo from './components/Buyout/BuyoutSteps/BuyoutInfo.js';
+import BuyoutImages from './components/Buyout/BuyoutSteps/BuyoutImages.js';
 import Page404 from './components/Page404/Page404.js';
 import Create from './components/Create/Create.js';
 import PartsCatalog from './components/PartsCatalog/PartsCatalog.js';
@@ -60,6 +62,8 @@ function App() {
         <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
         <Route exact path="/aboutUs" element={<AboutUs />} />
         <Route exact path="/izkupuvane" element={<Buyout />} />
+        <Route exact path="/izkupuvane/info" element={<BuyoutInfo />} />
+        <Route exact path="/izkupuvane/infopic" element={<BuyoutImages />} />
         <Route exact path="/create" element={<Create />} />
         <Route exact path="/cart" element={<Cart />} />
         <Route path="*" element={<Page404 />} />

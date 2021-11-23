@@ -1,9 +1,93 @@
 import { useNavigate } from "react-router-dom";
-
+import { useState } from 'react';
 
 
 const BuyoutInfo = () => {
+    let [addBrandClass, setAddBrandClass] = useState('');
+    let [addModelClass, setAddModelClass] = useState('');
+    let [addManufactureYearClass, setAddManufactureYearClass] = useState('');
+    let [addEngineTypeClass, setAddEngineTypeClass] = useState('');
+    let [addGearboxTypeClass, setAddGearboxTypeClass] = useState('');
+    let [addPriceWantedClass, setAddPriceWantedClass] = useState('');
+    let [addTextClass, setAddTextClass] = useState('');
+
+    function onBlurBrand(e) {
+        if (!e.target.value) {
+            setAddBrandClass('');
+        }
+    }
+
+    function onFocusBrand() {
+        setAddBrandClass('focused');
+    }
+
+    function onBlurModel(e) {
+        if (!e.target.value) {
+            setAddModelClass('');
+        }
+    }
+
+    function onFocusModel() {
+        setAddModelClass('focused');
+    }
+
+    function onBlurManufactureYear(e) {
+        if (!e.target.value) {
+            setAddManufactureYearClass('');
+        }
+    }
+
+    function onFocusManufactureYear() {
+        setAddManufactureYearClass('focused');
+    }
+
+    function onBlurEngineType(e) {
+        if (!e.target.value) {
+            setAddEngineTypeClass('');
+        }
+    }
+
+    function onFocusEngineType() {
+        setAddEngineTypeClass('focused');
+    }
+
+    function onBlurGearboxType(e) {
+        if (!e.target.value) {
+            setAddGearboxTypeClass('');
+        }
+    }
+
+    function onFocusGearboxType() {
+        setAddGearboxTypeClass('focused');
+    }
+
+    function onBlurPriceWanted(e) {
+        if (!e.target.value) {
+            setAddPriceWantedClass('');
+        }
+    }
+
+    function onFocusPriceWanted() {
+        setAddPriceWantedClass('focused');
+    }
+
+    function onBlurText(e) {
+        if (!e.target.value) {
+            setAddTextClass('');
+        }
+    }
+
+    function onFocusText() {
+        setAddTextClass('focused');
+    }
+
+
+
+
     const navigate = useNavigate();
+
+
+
 
     function onSubmitHandler(e) {
         e.preventDefault();
@@ -38,7 +122,7 @@ const BuyoutInfo = () => {
 
 
         if (!hasEmptyField) {
-            navigate('/izkupuvane/info2');
+            navigate('/izkupuvane/infopic');
         }
 
         function createEl() {
@@ -76,45 +160,45 @@ const BuyoutInfo = () => {
                 <form onSubmit={onSubmitHandler} action="POST" name="buyoutForm" className="form-horiz">
                     <div className="form-inputs">
                         <div className="form-input">
-                            <label className="field-label">
+                            <label className={`field-label ${addBrandClass}`}>
                                 <span className="required-field">Марка</span>
-                                <input type="text" name="brand" className="required" />
+                                <input type="text" name="brand" className="required" onBlur={onBlurBrand} onFocus={onFocusBrand} />
                             </label>
                         </div>
                         <div className="form-input">
-                            <label className="field-label">
+                            <label className={`field-label ${addModelClass}`}>
                                 <span className="required-field">Модел</span>
-                                <input type="text" name="model" className="required" />
+                                <input type="text" name="model" className="required" onBlur={onBlurModel} onFocus={onFocusModel} />
                             </label>
                         </div>
                         <div className="form-input">
-                            <label className="field-label">
+                            <label className={`field-label ${addManufactureYearClass}`}>
                                 <span className="required-field">Година на производство</span>
-                                <input type="text" name="manufactureYear" className="required" />
+                                <input type="text" name="manufactureYear" className="required" onBlur={onBlurManufactureYear} onFocus={onFocusManufactureYear} />
                             </label>
                         </div>
                         <div className="form-input">
-                            <label className="field-label">
+                            <label className={`field-label ${addEngineTypeClass}`}>
                                 <span className="required-field">Вид двигател</span>
-                                <input type="text" name="engineType" className="required" />
+                                <input type="text" name="engineType" className="required" onBlur={onBlurEngineType} onFocus={onFocusEngineType} />
                             </label>
                         </div>
                         <div className="form-input">
-                            <label className="field-label">
+                            <label className={`field-label ${addGearboxTypeClass}`}>
                                 <span className="required-field">Скоросттна кутия</span>
-                                <input type="text" name="gearboxType" className="required" />
+                                <input type="text" name="gearboxType" className="required" onBlur={onBlurGearboxType} onFocus={onFocusGearboxType} />
                             </label>
                         </div>
                         <div className="form-input">
-                            <label className="field-label">
+                            <label className={`field-label ${addPriceWantedClass}`}>
                                 <span className="required-field">Предложете цена за вашият автомобил</span>
-                                <input type="number" name="priceWanted" className="required" min="$100" max="$10000" />
+                                <input type="number" name="priceWanted" className="required" min="$100" max="$10000" onBlur={onBlurPriceWanted} onFocus={onFocusPriceWanted} />
                             </label>
                         </div>
                         <div className="form-input fullwidth">
-                            <label className="field-label">
+                            <label className={`field-label ${addTextClass}`}>
                                 <span className="required-field">Цялостно описание</span>
-                                <textarea name="text"></textarea>
+                                <textarea name="text" onBlur={onBlurText} onFocus={onFocusText}></textarea>
                             </label>
                         </div>
                     </div>

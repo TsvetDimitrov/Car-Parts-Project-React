@@ -1639,7 +1639,7 @@ label {
 
 /*sell your car page starts here */
 
-.buyout-car-wrapper .header {
+/* .buyout-car-wrapper .header {
     padding: 15px 20px;
     text-align: center;
 }
@@ -1766,7 +1766,7 @@ span.ripple {
 
 .buyout-car-wrapper .buyout-car-content .buyout-info .text-contacts .mail {
     color: #e8281e;
-}
+} */
 
 strong {
     font-size: 18px;
