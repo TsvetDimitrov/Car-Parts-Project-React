@@ -1,0 +1,58 @@
+#aboutUsPage {
+    z-index: 9;
+    margin-top: 30px;
+    position: relative;
+}
+
+.aboutUsHeader {
+    position: relative;
+    text-align: center;
+    background: url(../../images/titlebar-aboutus.jpg) no-repeat center center;
+    display: block;
+    padding: 18px 0;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.aboutUsHeader>.container>.h4 {
+    text-transform: uppercase;
+    float: left;
+    font-size: 30px;
+    font-family: roboto, sans-serif;
+    line-height: 24px;
+    margin-left: 60px;
+}
+
+.aboutUsHeader>.container>.links a {
+    font-family: roboto, sans-serif;
+    margin-right: 4px;
+    color: #1c2d3a;
+    text-decoration: none;
+}
+
+.aboutUsHeader>.container>.links {
+    float: right;
+    margin-right: 58px;
+}
+
+.aboutUsHeader>.container>.links a:hover {
+    border-bottom: 1px solid #e8281e;
+}
+
+.aboutUsHeader>.container>.links i {
+    margin-right: 4px;
+}
+
+.aboutUsHeader>.container>.links span {
+    font-size: 19px;
+    color: #dcdcdc;
+    margin: 0px 10px;
+}
+
+.aboutUsContent {
+    width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}

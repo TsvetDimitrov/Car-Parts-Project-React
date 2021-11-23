@@ -377,7 +377,7 @@ a {
 
 
 /* home page grid css starts: */
-
+/*
 .homepage-grid {
     position: relative;
     padding-top: 0;
@@ -423,6 +423,7 @@ a {
 
 /* side nav css starts: */
 
+/*
 .sidenav {
     margin-top: 20px;
     display: block;
@@ -585,7 +586,7 @@ a {
 
 
 /* Edit here */
-
+/*
 .homepage-grid .sidenav .categories .category:hover:after {
     background: url(./images//icons8-chevron-right-30-red.png) no-repeat center;
     opacity: 1;
@@ -640,7 +641,7 @@ a {
 
 
 /* Important !*/
-
+/*
 .sidenav .categories .category:hover .dropdown {
     display: block;
 }
@@ -689,7 +690,7 @@ a {
 
 .sidenav>.banners:hover .desktop {
     transform: scale(1.015, 1.015);
-}
+} */
 
 
 /* side nav css ends: */
@@ -697,7 +698,7 @@ a {
 
 /* aboutUsPage css starts: */
 
-#aboutUsPage {
+/* #aboutUsPage {
     z-index: 9;
     margin-top: 30px;
     position: relative;
@@ -754,7 +755,7 @@ a {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-}
+} */
 
 
 /* aboutUsPage css end: */
@@ -1065,7 +1066,7 @@ a {
 
 /* Footer css ends: */
 
-.headerModel::before {
+/* .headerModel::before {
     content: ' ';
     background-color: #e8281e;
     display: block;
@@ -1099,7 +1100,7 @@ a {
 
 
 /* brands css starts here */
-
+/*
 .content-data-item {
     display: flex;
     text-decoration: none;
@@ -1147,7 +1148,7 @@ picture img {
 
 .content-data-item:hover>.content-data-description>.content-data-title {
     color: #e8281e;
-}
+} */
 
 
 /* brands css ends here */

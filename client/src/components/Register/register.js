@@ -105,7 +105,7 @@ const Register = ({ history }) => {
                     <div className="main">
                         <div className="inner">
                             <div className="inner-inner">
-                                <a href="/" className="logo bg"></a>
+                                <Link to="/" className="logo bg"></Link>
                                 <h1 className="title">Регистрация</h1>
                                 <div className="member-form">
                                     <form onSubmit={onRegisterSubmitHandler} className="form-horizontal" name="memberLoginForm"
