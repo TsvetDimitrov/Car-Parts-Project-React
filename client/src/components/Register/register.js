@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import '../../App.css';
+import './Register.css';
 import { register } from '../../api/data.js';
 const Register = ({ history }) => {
     //TODO ADD class attribute to focused input tag.

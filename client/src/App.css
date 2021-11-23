@@ -1241,7 +1241,7 @@ ol {
 
 /*login page starts here */
 
-.content-login,
+/* .content-login,
 .content-register {
     width: 340px;
     margin: 0 auto;
@@ -1630,7 +1630,7 @@ label {
 .login-wrap,
 .register-wrap {
     background: #f3f3f3;
-}
+} */
 
 
 /*login, register page ends here */
@@ -1777,7 +1777,7 @@ strong {
 
 /*page 404 starts*/
 
-.page-404-wrapper {
+/* .page-404-wrapper {
     margin-top: 50px;
 }
 
@@ -1807,7 +1807,7 @@ strong {
     height: 16px;
     margin-right: 7px;
     background: url(./images/back-to-site-icon.svg);
-}
+} */
 
 
 /*page 404 ends*/

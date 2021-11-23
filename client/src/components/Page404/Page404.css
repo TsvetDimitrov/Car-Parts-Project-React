@@ -1,0 +1,31 @@
+.page-404-wrapper {
+    margin-top: 50px;
+}
+
+.page-404-wrapper a img {
+    display: block;
+    margin-left: 350px;
+}
+
+.page-404-wrapper a .text {
+    vertical-align: middle;
+    display: inline-block;
+    color: #1c2d3a;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.page-404-wrapper {
+    text-align: center;
+}
+
+.page-404-wrapper a .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    margin-right: 7px;
+    background: url(../../images/back-to-site-icon.svg);
+}
