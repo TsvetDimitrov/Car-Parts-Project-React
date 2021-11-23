@@ -39,10 +39,10 @@ const Navigation = ({
                         </div>
                     </div>) : ''}
 
-                    <Link to="tel: 0893496566" className="element phone">
+                    <a href="tel: 0893496566" className="element phone">
                         <span className="icon"></span>
                         <span className="text">+359893496566</span>
-                    </Link>
+                    </a>
                     {email ? (
                         <div className="user">
                             <Link to="/logout" className="element logout">
