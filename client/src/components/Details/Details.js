@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getProductById, addProductToCart, isUserAdmin, deletePartById } from '../../api/data.js';
-
+import './Details.css'
 
 const Details = () => {
     const navigate = useNavigate();

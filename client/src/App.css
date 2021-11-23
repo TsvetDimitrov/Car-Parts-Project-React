@@ -2047,7 +2047,7 @@ strong {
 
 /*Create page starts here */
 
-.creatediv {
+/* .creatediv {
     max-width: 720px;
     margin: 0 auto;
     padding: 20px 0px 60px;
@@ -2169,7 +2169,7 @@ strong {
     background: url(./images/upload.png);
     color: #fff;
 }
-
+ */
 
 /*Create page ends here */
 
@@ -2292,7 +2292,7 @@ strong {
 
 /*product details starts here */
 
-.product-details-wrapper {
+/* .product-details-wrapper {
     position: relative;
     max-width: 1220px;
     width: 100%;
@@ -2500,7 +2500,7 @@ strong {
     background: url(./images/delete-icon.png);
     margin-right: 7px;
     color: white;
-}
+} */
 
 
 /* product details ends here */
@@ -2508,7 +2508,7 @@ strong {
 
 /* user shopping-cart css starts here */
 
-.cart-wrapper {
+/* .cart-wrapper {
     background-color: #f3f3f3;
 }
 
@@ -2606,7 +2606,7 @@ strong {
     background-color: #f8f9fa;
     padding: 0.75rem;
     text-align: inherit;
-}
+} */
 
 
 /*user shopping-cart ends here */

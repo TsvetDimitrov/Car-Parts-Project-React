@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-
 import { createPart } from '../../api/data.js';
-
+import './Create.css';
 
 function Create() {
     const navigate = useNavigate();
@@ -1109,7 +1108,7 @@ function Create() {
                     </div>
                     <div className="brand">
                         <span>Марка*</span>
-                        <div classNames="select">
+                        <div className="select">
                             <select name="brand" id="" onChange={applyBrandDropdown}>
                                 <optgroup label="A">
                                     <option>ABARTH</option>

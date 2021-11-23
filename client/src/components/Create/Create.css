@@ -1,0 +1,123 @@
+.creatediv {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 0px 60px;
+}
+
+
+/* .creatediv .select{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    vertical-align: text-top;
+    max-width: calc(50% - 20px);
+    width: 100%;
+} */
+
+.creatediv .model,
+.creatediv .engine,
+.creatediv .color,
+.creatediv .brand,
+.creatediv .type,
+.creatediv .category,
+.creatediv .year,
+.creatediv .image,
+.creatediv .condition {
+    margin-top: 10px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: text-top;
+    max-width: calc(50% - 20px);
+    width: 100%;
+}
+
+.creatediv select[name="category"],
+.creatediv select[name="type"],
+.creatediv select[name="brand"],
+.creatediv select[name="model"],
+.creatediv select[name="engineType"],
+.creatediv select[name="partColor"],
+.creatediv select[name="condition"] {
+    width: 81%;
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #1c2d3a;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+
+.creatediv select[name="yearFrom"],
+.creatediv select[name="yearTo"] {
+    width: 40.5%;
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #1c2d3a;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+
+.creatediv input[type="text"] {
+    width: 72%;
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #1c2d3a;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+
+.creatediv .button-wrapper {
+    max-width: 320px;
+    margin: 15px auto;
+}
+
+.creatediv .button-submit {
+    width: 275px;
+    position: relative;
+    overflow: hidden;
+    background: #e8281e;
+    border: 1px solid #e8281e;
+    display: flex;
+    height: 48px;
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.creatediv .button-submit span {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.creatediv .button-submit .icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 15px;
+    background: url(../../images/upload.png);
+    color: #fff;
+}
+
