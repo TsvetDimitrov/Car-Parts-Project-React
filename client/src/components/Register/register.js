@@ -160,7 +160,7 @@ const Register = ({ handleClickShowError }) => {
                                 <div className="separator"></div>
                                 <div className="existing-user">
                                     <span className="existing-user-text">Вече имате профил?</span>
-                                    <Link to="/login">Вход</Link>
+                                    <Link to="/login"> Вход</Link>
                                 </div>
                             </div>
                             <div className="back-to-site">

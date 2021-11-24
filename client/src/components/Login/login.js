@@ -95,7 +95,7 @@ const Login = ({
                                 <div className="separator"></div>
                                 <div className="not-registered-user">
                                     <span className="not-registered-user-text">Нямате профил?</span>
-                                    <Link to="/register">Регистрация</Link>
+                                    <Link to="/register"> Регистрация</Link>
                                 </div>
                             </div>
                             <div className="back-to-site">
