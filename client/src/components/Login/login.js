@@ -40,7 +40,7 @@ const Login = ({
         const password = e.target.password.value.trim();
 
         if (!email || !password) {
-            return handleClickShowError('All fields are required!');
+            return handleClickShowError('Всички полета са задължителни!');
         }
     
         await login(email, password);

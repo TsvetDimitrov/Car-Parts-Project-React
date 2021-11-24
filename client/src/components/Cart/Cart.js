@@ -12,7 +12,7 @@ const Cart = ({ handleClickShowError }) => {
     useEffect(() => {
         if (!sessionStorage.getItem('email')) {
             navigate('/login');
-            handleClickShowError('You need to login first!');
+            handleClickShowError('Моля, влезте в профила си!');
             return null;
         }
 

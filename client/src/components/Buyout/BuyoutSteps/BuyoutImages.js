@@ -22,7 +22,7 @@ const BuyoutImages = ({handleClickShowError}) => {
         const formData = new FormData(e.target);
         const imageUrl = formData.get('imageUrl').trim();
         if (!imageUrl) {
-            return handleClickShowError('Please enter imageUrl');
+            return handleClickShowError('Моля въведете адрес на изображение!');
         } else {
             //FIX DATA STATE FROM PREVIOUS COMPONENT.
             // await createCarBuyOutRequest(carDataState);

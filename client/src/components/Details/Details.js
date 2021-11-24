@@ -18,10 +18,10 @@ const Details = ({ handleClickShowError }) => {
     async function addCartProduct() {
         try {
             if (!sessionStorage.getItem('email')) {
-                throw new Error('Please log in first!');
+                throw new Error('Моля, влезте в профила си!');
             }
             const result = await addProductToCart(productId);
-            handleClickShowError('You have successfully added your product to your cart!');
+            handleClickShowError('Продукта е добавен в количката успешно!');
             //TODO result.message show screen!
         } catch (err) {
             handleClickShowError(err.message);
@@ -40,7 +40,7 @@ const Details = ({ handleClickShowError }) => {
             await deletePartById(productId);
 
             navigate('/');
-            return handleClickShowError('Part successfully deleted!');
+            return handleClickShowError('Продукта е успешно изтрит!');
 
         } catch (err) {
             handleClickShowError(err.message);

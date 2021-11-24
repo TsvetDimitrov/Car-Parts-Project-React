@@ -81,21 +81,15 @@ const Register = ({ handleClickShowError }) => {
         const agreement_2 = e.target.agreement_2.checked;
 
         if (!name || !email || !telNumber || !password || !repeatPass || !agreement_1 || !agreement_2) {
-            return handleClickShowError('All fields are required!');
+            return handleClickShowError('Всички полета са задължителни!');
         }
 
         if (password != repeatPass) {
-            return handleClickShowError('Passwords don\'t match');
+            return handleClickShowError('Паролите не съвпадат!');
         }
 
         await register(name, email, telNumber, password);
         navigate('/');
-
-        // auth.createUserWithEmailAndPassword(username, password)
-        //     .then(userCredential => {
-        //         console.log('Register');
-        //         history.push('/');
-        //     });
     }
 
     return (

@@ -1059,7 +1059,7 @@ function Create({ handleClickShowError }) {
         const price = e.target.price.value.trim();
 
         if (!category || !type || !brand || !model || !title || !price) {
-            return handleClickShowError('Category, type, brand, model, title and price are required!');
+            return handleClickShowError('Category, type, brand, model, title and price са задължителни!');
         }
 
         await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price);
