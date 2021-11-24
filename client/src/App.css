@@ -1156,7 +1156,7 @@ picture img {
 
 /* benefits starts here */
 
-.benefits-wrapper>.inner {
+/* .benefits-wrapper>.inner {
     padding: 40px 20px;
     max-width: 1220px;
     margin: 0 auto;
@@ -1234,7 +1234,7 @@ ol {
     border: 0;
     outline: 0;
     box-sizing: border-box;
-}
+} */
 
 
 /* benefits ends here */

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Benefits from "../Benefits/Benefits";
 import './Home.css'
 
 
@@ -613,7 +614,7 @@ function Home() {
                         <div className="content-data content-data-4-columns but-only-2">
                             <h1 className="headerModel">Търсене по марка и модел</h1>
                             <Link to="/products/brand/abarth" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}}
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }}
                                     data-src="../../../images/abarth.png" data-alt="ABARTH" width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="../../../images/abarth.png" />
                                     <source srcSet="../../../images/abarth.png" />
@@ -628,7 +629,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/alfa-romeo" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}}
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }}
                                     data-src="/images/alfa-romeo.png" data-alt="alfa-romeo" width="130" height="130"
                                     data-loaded="true">
                                     <source type="image/webp" srcSet="../../../images/alfa-romeo.webp" />
@@ -644,7 +645,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/audi" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="audi"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="audi"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/audi.webp" />
                                     <img alt="audi" />
@@ -658,10 +659,10 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/bmw" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="BMW"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="BMW"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet={"/images/bmw.webp"} />
-                                    <img alt="BMW" src= {"/images/bmw.webp"}/>
+                                    <img alt="BMW" src={"/images/bmw.webp"} />
                                 </picture>
                                 <div className="content-data-description">
                                     <div className="content-data-title mt-3">
@@ -672,7 +673,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/chevrolet" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="chevrolet"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="chevrolet"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/chevrolet.webp" />
                                     <img alt="chevrolet" />
@@ -686,7 +687,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/chrysler" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="chrysler"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="chrysler"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/chrysler.webp" />
                                     <img alt="chrysler" />
@@ -700,7 +701,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/CITROËN" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="citroËn"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="citroËn"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/citroËn.webp" />
                                     <img alt="citroËn" />
@@ -714,7 +715,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/dacia" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', 'minHeight': '1rem'} } data-alt="dacia"
+                                <picture className="lozad m-auto" style={{ display: 'block', 'minHeight': '1rem' }} data-alt="dacia"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/dacia.webp" />
                                     <img alt="dacia" />
@@ -728,7 +729,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/daewoo" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="daewoo"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="daewoo"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/daewoo.webp" />
                                     <img alt="daewoo" />
@@ -742,7 +743,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/daihatsu" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="daihatsu"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="daihatsu"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/daihatsu.webp" />
                                     <img alt="daihatsu" />
@@ -756,7 +757,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/fiat" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="fiat"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="fiat"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/fiat.webp" />
                                     <img alt="fiat" />
@@ -770,7 +771,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/ford" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="FORD"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="FORD"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/ford.webp" />
                                     <img alt="FORD" />
@@ -784,7 +785,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/honda" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="HONDA"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="HONDA"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/honda.webp" />
                                     <img alt="HONDA" />
@@ -798,7 +799,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/hyundai" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="HYUNDAI"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="HYUNDAI"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/hyundai.webp" />
                                     <img alt="HYUNDAI" />
@@ -812,7 +813,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/infiniti" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="INFINITI"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="INFINITI"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/infiniti.webp" />
                                     <img alt="INFINITI" />
@@ -826,7 +827,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/iveco" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="IVECO"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="IVECO"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/iveco.webp" />
                                     <img alt="IVECO" />
@@ -840,7 +841,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/jeep" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="JEEP"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="JEEP"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/jeep.webp" />
                                     <img alt="JEEP" />
@@ -854,7 +855,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/kia" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="KIA"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="KIA"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/kia.webp" />
                                     <img alt="KIA" />
@@ -868,7 +869,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/lancia" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="LANCIA"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="LANCIA"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/lancia.webp" />
                                     <img alt="LANCIA" />
@@ -882,7 +883,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/land-rover" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="LAND-ROVER"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="LAND-ROVER"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/land-rover.webp" />
                                     <img alt="LAND-ROVER" />
@@ -896,7 +897,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/lexus" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="LEXUS"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="LEXUS"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/lexus.webp" />
                                     <img alt="LEXUS" />
@@ -910,7 +911,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/mazda" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="MAZDA"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="MAZDA"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/mazda.webp" />
                                     <img alt="MAZDA" />
@@ -924,7 +925,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/mercedes-benz" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="MERCEDES-BENZ"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="MERCEDES-BENZ"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/mercedes-benz.webp" />
                                     <img alt="MERCEDES-BENZ" />
@@ -938,7 +939,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/mini" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="MINI"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="MINI"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/mini.webp" />
                                     <img alt="MINI" />
@@ -952,7 +953,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/mitsubishi" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="MITSUBISHI"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="MITSUBISHI"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/mitsubishi.webp" />
                                     <img alt="MITSUBISHI" />
@@ -966,7 +967,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/nissan" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="NISSAN"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="NISSAN"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/nissan.webp" />
                                     <img alt="NISSAN" />
@@ -980,7 +981,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/opel" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="OPEL"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="OPEL"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/opel.webp" />
                                     <img alt="OPEL" />
@@ -994,7 +995,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/peugeot" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="PEUGEOT"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="PEUGEOT"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/peugeot.webp" />
                                     <img alt="PEUGEOT" />
@@ -1008,7 +1009,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/porsche" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="PORSCHE"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="PORSCHE"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/porsche.webp" />
                                     <img alt="PORSCHE" />
@@ -1022,7 +1023,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/renault" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="RENAULT"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="RENAULT"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/renault.webp" />
                                     <img alt="RENAULT" />
@@ -1036,7 +1037,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/rover" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="ROVER"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="ROVER"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/rover.webp" />
                                     <img alt="ROVER" />
@@ -1050,7 +1051,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/saab" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="SAAB"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="SAAB"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/saab.webp" />
                                     <img alt="SAAB" />
@@ -1064,7 +1065,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/seat" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="SEAT"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="SEAT"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/seat.webp" />
                                     <img alt="SEAT" />
@@ -1078,7 +1079,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/skoda" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="SKODA"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="SKODA"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/skoda.webp" />
                                     <img alt="SKODA" />
@@ -1092,7 +1093,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/smart" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="SMART"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="SMART"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/smart.webp" />
                                     <img alt="SMART" />
@@ -1106,7 +1107,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/subaru" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="SUBARU"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="SUBARU"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/subaru.webp" />
                                     <img alt="SUBARU" />
@@ -1120,7 +1121,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/suzuki" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="SUZUKI"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="SUZUKI"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/suzuki.webp" />
                                     <img alt="SUZUKI" />
@@ -1134,7 +1135,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/toyota" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="TOYOTA"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="TOYOTA"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/toyota.webp" />
                                     <img alt="TOYOTA" />
@@ -1148,7 +1149,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/volvo" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="VOLVO"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="VOLVO"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/volvo.webp" />
                                     <img alt="VOLVO" />
@@ -1162,7 +1163,7 @@ function Home() {
                                 </div>
                             </Link>
                             <Link to="/products/brand/volkswagen" className="content-data-item">
-                                <picture className="lozad m-auto" style={{display: 'block', minHeight: '1rem'}} data-alt="VOLKSWAGEN"
+                                <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="VOLKSWAGEN"
                                     width="130" height="130" data-loaded="true">
                                     <source type="image/webp" srcSet="/images/vw.webp" />
                                     <img alt="VOLKSWAGEN" />
@@ -1180,35 +1181,7 @@ function Home() {
                     </div>
                 </div>
             </div>
-
-            <div className="benefits-wrapper">
-                <div className="inner">
-                    <div className="benefits">
-                        <ul>
-                            <li>
-                                <img src="/images/express-delivery-icon.png" alt="Експресна доставка" />
-                                <p>Експресна доставка</p>
-                                <p>Доставяне из цяла България.</p>
-                            </li>
-                            <li>
-                                <img src="/images/delivery.png" alt="Нови части" />
-                                <p>Нови части всеки ден</p>
-                                <p>Ежедневно зарежваме нови части.</p>
-                            </li>
-                            <li>
-                                <img src="/images/satisfaction-guaranteed.png" alt="Нови части" />
-                                <p>Проверено качество</p>
-                                <p>Авточасти с гаранция.</p>
-                            </li>
-                            <li>
-                                <img src="/images/right-of-return.png" alt="Нови части" />
-                                <p>Право на връщане</p>
-                                <p>14 дни право на връщане на всяка поръчана стока.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <Benefits />
         </div>
 
     )
