@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { getProductById, addProductToCart, isUserAdmin, deletePartById } from '../../api/data.js';
 import './Details.css'
 
-const Details = () => {
+const Details = ({ handleClickShowError }) => {
     const navigate = useNavigate();
 
     const [product, setProduct] = useState({});
@@ -16,16 +16,15 @@ const Details = () => {
     const isAdmin = sessionStorage.getItem('isAdmin');
 
     async function addCartProduct() {
-        console.log('clicked');
         try {
             if (!sessionStorage.getItem('email')) {
                 throw new Error('Please log in first!');
             }
             const result = await addProductToCart(productId);
-            alert('You have successfully added your product to your cart!');
+            handleClickShowError('You have successfully added your product to your cart!');
             //TODO result.message show screen!
         } catch (err) {
-            alert(err.message);
+            handleClickShowError(err.message);
             navigate('/login');
         }
     }
@@ -41,10 +40,10 @@ const Details = () => {
             await deletePartById(productId);
 
             navigate('/');
-            return alert('Part successfully deleted!');
+            return handleClickShowError('Part successfully deleted!');
 
         } catch (err) {
-            alert(err.message);
+            handleClickShowError(err.message);
         }
     }
 

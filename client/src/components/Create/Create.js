@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { createPart } from '../../api/data.js';
 import './Create.css';
 
-function Create() {
+function Create({ handleClickShowError }) {
     const navigate = useNavigate();
     let categoryItemsData = [
         ['Аудио, видео, навигации', 'CD Чейнджъри'],
@@ -1059,7 +1059,7 @@ function Create() {
         const price = e.target.price.value.trim();
 
         if (!category || !type || !brand || !model || !title || !price) {
-            return alert('Category, type, brand, model, title and price are required!');
+            return handleClickShowError('Category, type, brand, model, title and price are required!');
         }
 
         await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price);

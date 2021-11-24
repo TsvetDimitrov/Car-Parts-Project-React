@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './Register.css';
 import { register } from '../../api/data.js';
-const Register = ({ history }) => {
+const Register = ({ handleClickShowError }) => {
     //TODO ADD class attribute to focused input tag.
     let [addNameClass, setAddNameClass] = useState('');
     let [addEmailClass, setAddEmailClass] = useState('');
@@ -81,11 +81,11 @@ const Register = ({ history }) => {
         const agreement_2 = e.target.agreement_2.checked;
 
         if (!name || !email || !telNumber || !password || !repeatPass || !agreement_1 || !agreement_2) {
-            return alert('All fields are required!');
+            return handleClickShowError('All fields are required!');
         }
 
         if (password != repeatPass) {
-            return alert('Passwords don\'t match');
+            return handleClickShowError('Passwords don\'t match');
         }
 
         await register(name, email, telNumber, password);

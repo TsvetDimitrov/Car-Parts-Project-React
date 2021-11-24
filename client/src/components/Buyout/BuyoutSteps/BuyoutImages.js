@@ -1,7 +1,20 @@
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 
-const BuyoutImages = () => {
+const BuyoutImages = ({handleClickShowError}) => {
+    let [addImageUrlClass, setAddImageUrlClass] = useState('');
+
+    function onBlurImageUrl(e) {
+        if (!e.target.value) {
+            setAddImageUrlClass('');
+        }
+    }
+
+    function onFocusImageUrl() {
+        setAddImageUrlClass('focused');
+    }
+
     const navigate = useNavigate();
 
     async function onSubmitImagesHandler(e) {
@@ -9,7 +22,7 @@ const BuyoutImages = () => {
         const formData = new FormData(e.target);
         const imageUrl = formData.get('imageUrl').trim();
         if (!imageUrl) {
-            return alert('Please enter imageUrl');
+            return handleClickShowError('Please enter imageUrl');
         } else {
             //FIX DATA STATE FROM PREVIOUS COMPONENT.
             // await createCarBuyOutRequest(carDataState);
@@ -45,9 +58,9 @@ const BuyoutImages = () => {
                 </div>
                 <div className="image-wrapper">
                     <form onSubmit={onSubmitImagesHandler}>
-                        <label className="field-label">
+                        <label className={`field-label ${addImageUrlClass}`}>
                             <span className="required-field">Въведете imageURL</span>
-                            <input type="text" name="imageUrl" className="required" min="$100" max="$10000" />
+                            <input type="text" name="imageUrl" className="required" min="$100" max="$10000" onBlur={onBlurImageUrl} onFocus={onFocusImageUrl} />
                         </label>
                         <button type="submit">Изпрати заявка</button>
                     </form>

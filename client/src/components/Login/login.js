@@ -6,7 +6,8 @@ import { login } from '../../api/data.js';
 
 
 const Login = ({
-    onLogin
+    onLogin, 
+    handleClickShowError
 }) => {
     let [addEmailClass, setAddEmailClass] = useState('');
     let [addPasswordClass, setAddPasswordClass] = useState('');
@@ -39,7 +40,7 @@ const Login = ({
         const password = e.target.password.value.trim();
 
         if (!email || !password) {
-            return alert('All fields are required!');
+            return handleClickShowError('All fields are required!');
         }
     
         await login(email, password);

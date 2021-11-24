@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getUserCartProducts, removeProductFromCart } from '../../api/data.js';
 import './Cart.css';
 
-const Cart = () => {
+const Cart = ({ handleClickShowError }) => {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ const Cart = () => {
     useEffect(() => {
         if (!sessionStorage.getItem('email')) {
             navigate('/login');
-            alert('You need to login first!');
+            handleClickShowError('You need to login first!');
             return null;
         }
 

@@ -22,8 +22,15 @@ import Cart from './components/Cart/Cart.js';
 
 function App() {
   const [userInfo, setUserInfo] = useState({ isAuthenticated: false, email: '', isAdmin: 0 });
+  const [errorMessage, setErrorMessage] = useState('');
 
+  const handleClickShowError = (msg) => {
+    setErrorMessage(msg);
 
+    setTimeout(() => {
+      setErrorMessage();
+    }, 3000);
+  }
 
   useEffect(() => {
     let user = getUser();
@@ -51,25 +58,32 @@ function App() {
       isAdmin: 0,
     })
   };
-  
+
   return (
     <div className="App">
       <Navigation {...userInfo} />
+      {errorMessage &&
+        <section id="notifications">
+          <div id="errorBox" className="notification" style={errorMessage ? { display: "block" } : { display: "none" }}>
+            <span>{errorMessage}</span>
+          </div>
+        </section>
+      }
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/login" element={<Login onLogin={onLogin} />} />
+        <Route exact path="/register" element={<Register handleClickShowError={handleClickShowError} />} />
+        <Route exact path="/login" element={<Login onLogin={onLogin} handleClickShowError={handleClickShowError} />} />
         <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
         <Route exact path="/aboutUs" element={<AboutUs />} />
         <Route exact path="/izkupuvane" element={<Buyout />} />
         <Route exact path="/izkupuvane/info" element={<BuyoutInfo />} />
-        <Route exact path="/izkupuvane/infopic" element={<BuyoutImages />} />
-        <Route exact path="/create" element={<Create />} />
-        <Route exact path="/cart" element={<Cart />} />
+        <Route exact path="/izkupuvane/infopic" element={<BuyoutImages handleClickShowError={handleClickShowError} />} />
+        <Route exact path="/create" element={<Create handleClickShowError={handleClickShowError} />} />
+        <Route exact path="/cart" element={<Cart handleClickShowError={handleClickShowError} />} />
         <Route path="*" element={<Page404 />} />
         <Route path="/products/:productCategory" element={<PartsCatalog />} />
         <Route path="/products/brand/:brandName" element={<BrandCatalog />} />
-        <Route path="/product/:productId" element={<Details />} />
+        <Route path="/product/:productId" element={<Details handleClickShowError={handleClickShowError} />} />
       </Routes>
       <Footer />
     </div>

@@ -81,13 +81,7 @@ const BuyoutInfo = () => {
         setAddTextClass('focused');
     }
 
-
-
-
     const navigate = useNavigate();
-
-
-
 
     function onSubmitHandler(e) {
         e.preventDefault();
