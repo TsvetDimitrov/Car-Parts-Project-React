@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import './Page404.css';
 
 function Page404() {
-    console.log('here');
     return (
         <div className="page-404-wrapper">
             <Link to="/">

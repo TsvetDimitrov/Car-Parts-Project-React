@@ -18,6 +18,7 @@ import Create from './components/Create/Create.js';
 import PartsCatalog from './components/PartsCatalog/PartsCatalog.js';
 import BrandCatalog from './components/PartsCatalog/BrandCatalog.js';
 import Details from './components/Details/Details.js';
+import Edit from './components/Edit/Edit.js';
 import Cart from './components/Cart/Cart.js';
 
 function App() {
@@ -84,6 +85,8 @@ function App() {
         <Route path="/products/:productCategory" element={<PartsCatalog />} />
         <Route path="/products/brand/:brandName" element={<BrandCatalog />} />
         <Route path="/product/:productId" element={<Details handleClickShowError={handleClickShowError} />} />
+        <Route exact path="/product/edit/:productId" element={<Edit handleClickShowError={handleClickShowError} />} />
+
       </Routes>
       <Footer />
     </div>

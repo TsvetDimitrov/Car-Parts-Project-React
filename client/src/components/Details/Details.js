@@ -12,7 +12,7 @@ const Details = ({ handleClickShowError }) => {
         let result = await getProductById(productId);
         setProduct(result);
     }, []);
-
+    console.log(product);
     const isAdmin = sessionStorage.getItem('isAdmin');
 
     async function addCartProduct() {
@@ -22,7 +22,6 @@ const Details = ({ handleClickShowError }) => {
             }
             const result = await addProductToCart(productId);
             handleClickShowError('Продукта е добавен в количката успешно!');
-            //TODO result.message show screen!
         } catch (err) {
             handleClickShowError(err.message);
             navigate('/login');
@@ -88,7 +87,7 @@ const Details = ({ handleClickShowError }) => {
 
                                 {product.partColor ?
                                     <div className="attribute">
-                                        <div className="attribute-text">Двигател</div>
+                                        <div className="attribute-text">Цвят</div>
                                         <div className="attribute-info">
                                             <span>{product.partColor}</span>
                                         </div>
