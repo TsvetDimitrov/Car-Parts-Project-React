@@ -6,7 +6,7 @@ import { login } from '../../api/data.js';
 
 
 const Login = ({
-    onLogin, 
+    onLogin,
     handleClickShowError
 }) => {
     let [addEmailClass, setAddEmailClass] = useState('');
@@ -42,11 +42,17 @@ const Login = ({
         if (!email || !password) {
             return handleClickShowError('Всички полета са задължителни!');
         }
-    
-        await login(email, password);
-        onLogin(email, sessionStorage.getItem('isAdmin'));
 
-        navigate('/');
+        try {
+            await login(email, password);
+            onLogin(email, sessionStorage.getItem('isAdmin'));
+            navigate('/');
+
+        } catch (err) {
+            handleClickShowError(err.message);
+        }
+
+        
     };
 
     return (

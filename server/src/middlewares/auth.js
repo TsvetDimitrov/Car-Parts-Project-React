@@ -57,7 +57,7 @@ async function register(name, email, phoneNumber, password) {
     const existing = await userService.getUserByEmail(email);
 
     if (existing) {
-        throw new Error('This email is already registered!');
+        throw new Error('Вече има съществуващ акаунт с този email адрес!');
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -70,14 +70,14 @@ async function register(name, email, phoneNumber, password) {
 async function login(email, password) {
     const user = await userService.getUserByEmail(email);
     if (!user) {
-        const err = new Error('No such email!');
+        const err = new Error('Невалиден мейл!');
         err.type = 'credential';
         throw err;
     }
 
     const hasMatch = await bcrypt.compare(password, user.password);
     if (!hasMatch) {
-        const err = new Error('Incorrect password!');
+        const err = new Error('Грешна парола!');
         err.type = 'credential';
         throw err;
     }

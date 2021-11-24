@@ -10,10 +10,19 @@ const Edit = ({
     const [productData, setProductData] = useState({});
 
     const { productId } = useParams();
-    useEffect(async () => {
-        await isUserAdmin();
-        let result = await getProductById(productId);
-        setProductData(result);
+    useEffect(() => {
+        async function checkIfAdminAndGetProducts() {
+            try {
+                const isAdmin = await isUserAdmin();
+                console.log(isAdmin);
+                let result = await getProductById(productId);
+                setProductData(result);
+            } catch (err) {
+                console.log(err.message);
+                handleClickShowError(err.message);
+            }
+        }
+        checkIfAdminAndGetProducts()
     }, []);
 
     const navigate = useNavigate();
