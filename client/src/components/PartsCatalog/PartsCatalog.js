@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import PartCard from './PartCard';
-import { getPartsByType } from '../../api/data.js';
 import { useParams } from 'react-router-dom';
+import { getPartsByType } from '../../api/data.js';
+import PartCard from './PartCard';
+import "./Products.css";
+
 
 const PartsCatalog = () => {
     const [parts, setParts] = useState([]);
@@ -10,6 +12,7 @@ const PartsCatalog = () => {
     const { productCategory } = useParams();
 
     useEffect(() => {
+
         getPartsByType(productCategory)
             .then(result => {
                 setParts(result[0]);
@@ -25,7 +28,7 @@ const PartsCatalog = () => {
             </div>
             <div className="products-list">
 
-                {parts.length == 0 ? <div className="no-items">
+                {parts.length === 0 ? <div className="no-items">
                     <p className="text">Все още няма налични части, отговарящи на тази категория.</p>
                     <span className="icon"></span>
                 </div> : parts.map(x => <PartCard key={x._id} part={x} />)}

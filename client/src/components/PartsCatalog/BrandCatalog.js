@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PartCard from './PartCard';
 import { getProductsByBrand } from '../../api/data.js';
+import "./Products.css";
 
 
 
@@ -19,10 +20,6 @@ const BrandCatalog = () => {
             })
     }, []);
 
-    console.log(brandName);
-
-    console.log(parts);
-
     return (<div className="content-products">
         <div className="heading">
             <h1 className="title heading">
@@ -30,7 +27,7 @@ const BrandCatalog = () => {
         </div>
         <div className="products-list">
 
-            {parts.length == 0 ? <div className="no-items">
+            {parts.length === 0 ? <div className="no-items">
                 <p className="text">Все още няма налични части, отговарящи на тази категория.</p>
                 <span className="icon"></span>
             </div> : parts.map(x => <PartCard key={x._id} part={x} />)}

@@ -41,7 +41,7 @@ const BuyoutImages = ({handleClickShowError}) => {
                 <div className="buyout-steps">
                     <div className="buyout-step active">
                         <div className="step-image">
-                            <img src="/images/step-01-success.svg" />
+                            <img src="/images/step-01-success.svg" alt="success" />
                         </div>
                         <div className="buyout-text">Въведете данните за вашия автомобил</div>
                     </div>
@@ -49,7 +49,7 @@ const BuyoutImages = ({handleClickShowError}) => {
                     <div className="buyout-step">
 
                         <div className="step-image">
-                            <img src="/images/step-01-active.svg" />
+                            <img src="/images/step-01-active.svg" alt="active-page"/>
                         </div>
                         <div className="buyout-text">Приложете снимки на вашият автомобил</div>
                     </div>

@@ -5,8 +5,12 @@ import { logout } from '../../api/data.js';
 const Logout = ({ onLogout }) => {
     let navigate = useNavigate();
 
-    useEffect(async () => {
-        await logout();
+    useEffect(() => {
+        async function logoutAction() {
+            await logout();
+        }
+
+        logoutAction();
     }, []);
 
     onLogout();

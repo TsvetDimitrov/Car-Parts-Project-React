@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { isUserAdmin, editPartById, getProductById } from '../../api/data.js';
-
+import './Edit.css';
 
 const Edit = ({
     handleClickShowError

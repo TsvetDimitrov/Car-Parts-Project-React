@@ -62,7 +62,7 @@ function Footer() {
                     </section>
                     <section className="footer_query">
                         <h4 className="title_h4">Направи запитване</h4>
-                        <form className="queryForm" role="form" id="email_form" method="post" action="mailto:dimitrovv32@gmail.com">
+                        <form className="queryForm"  id="email_form" method="post" action="mailto:dimitrovv32@gmail.com">
                             <input type="text" name="email" className="in_email" placeholder="Email...*" />
                             <input type="text" name="telephone" className="in_telephone" placeholder="Телефон..." />
                             <input type="text" name="firmName" className="in_firm" placeholder="Фирма..." />

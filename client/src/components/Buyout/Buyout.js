@@ -30,7 +30,7 @@ function Buyout() {
                         </h3>
 
                         <h3>
-                            <img src="/images/mail-icon.png" className="icon" />
+                            <img src="/images/mail-icon.png" className="icon" alt="" />
                             <Link className="mail" to="mailto:dimitrovv32@gmail.com"><strong>dimitrovv32@gmail.com</strong></Link>
                         </h3>
                     </div>

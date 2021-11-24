@@ -605,7 +605,7 @@ function Home() {
                             </div>
                         </div>
                         <div className="banners">
-                            <img src="/images/reklamatuk.png" className="desktop" />
+                            <img src="/images/reklamatuk.png" className="desktop" alt="" />
                         </div>
                     </div>
 
