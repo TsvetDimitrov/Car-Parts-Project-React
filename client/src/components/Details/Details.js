@@ -43,6 +43,7 @@ const Details = ({ handleClickShowError }) => {
             return handleClickShowError('Продукта е успешно изтрит!');
 
         } catch (err) {
+            navigate(`/product/${productId}`)
             handleClickShowError(err.message);
         }
     }

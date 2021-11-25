@@ -8,6 +8,7 @@ const Edit = ({
 }) => {
 
     const [productData, setProductData] = useState({});
+    const navigate = useNavigate();
 
     const { productId } = useParams();
     useEffect(() => {
@@ -18,14 +19,13 @@ const Edit = ({
                 let result = await getProductById(productId);
                 setProductData(result);
             } catch (err) {
-                console.log(err.message);
+                navigate(`/product/${productId}`);
                 handleClickShowError(err.message);
             }
         }
         checkIfAdminAndGetProducts()
     }, []);
 
-    const navigate = useNavigate();
 
     const handleChange = e => {
         console.log(productData);
