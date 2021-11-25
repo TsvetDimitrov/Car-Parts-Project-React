@@ -17,6 +17,7 @@ import Page404 from './components/Page404/Page404.js';
 import Create from './components/Create/Create.js';
 import PartsCatalog from './components/PartsCatalog/PartsCatalog.js';
 import BrandCatalog from './components/PartsCatalog/BrandCatalog.js';
+import AllProductsCatalog from './components/PartsCatalog/AllProductsCatalog.js';
 import Details from './components/Details/Details.js';
 import Edit from './components/Edit/Edit.js';
 import Cart from './components/Cart/Cart.js';
@@ -35,7 +36,6 @@ function App() {
 
   useEffect(() => {
     let user = getUser();
-    console.log(user);
     setUserInfo({
       isAuthenticated: Boolean(user),
       email: user.email,
@@ -86,6 +86,7 @@ function App() {
         <Route path="/products/brand/:brandName" element={<BrandCatalog />} />
         <Route path="/product/:productId" element={<Details handleClickShowError={handleClickShowError} />} />
         <Route exact path="/product/edit/:productId" element={<Edit handleClickShowError={handleClickShowError} />} />
+        <Route path="/products" element={<AllProductsCatalog />} />
 
       </Routes>
       <Footer />
