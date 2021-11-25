@@ -5,26 +5,21 @@ import './Create.css';
 
 function Create({ handleClickShowError }) {
     const navigate = useNavigate();
-    // const [isAdmin, setIsAdmin] = useState('');
 
-    const isAdmin = 0;
     useEffect(() => {
         async function checkIfAdmin() {
             try {
-                const result = await isUserAdmin();
-                isAdmin = 1;
+                await isUserAdmin();
             } catch (err) {
                 navigate('/');
                 handleClickShowError(err.message);
-                
+
             }
         }
         checkIfAdmin();
     })
 
-    if(!isAdmin){
-        return null;
-    }
+
 
     let categoryItemsData = [
         ['Аудио, видео, навигации', 'CD Чейнджъри'],
