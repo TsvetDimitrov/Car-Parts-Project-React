@@ -21,6 +21,7 @@ import AllProductsCatalog from './components/PartsCatalog/AllProductsCatalog.js'
 import Details from './components/Details/Details.js';
 import Edit from './components/Edit/Edit.js';
 import Cart from './components/Cart/Cart.js';
+import TermsOfUse from './components/TermsAndConditions/TermsOfUse.js';
 
 function App() {
   const [userInfo, setUserInfo] = useState({ isAuthenticated: false, email: '', isAdmin: 0 });
@@ -80,8 +81,8 @@ function App() {
         <Route exact path="/aboutUs" element={<AboutUs />} />
         <Route exact path="/izkupuvane" element={<Buyout />} />
         {/* <carBuyoutContext.Provider value={{ carInfo, setCarInfo }}> */}
-          <Route exact path="/izkupuvane/info" element={<BuyoutInfo carBuyoutContext={carBuyoutContext} />} />
-          <Route exact path="/izkupuvane/infopic" element={<BuyoutImages carBuyoutContext={carBuyoutContext} handleClickShowError={handleClickShowError} />} />
+        <Route exact path="/izkupuvane/info" element={<BuyoutInfo carBuyoutContext={carBuyoutContext} />} />
+        <Route exact path="/izkupuvane/infopic" element={<BuyoutImages carBuyoutContext={carBuyoutContext} handleClickShowError={handleClickShowError} />} />
         {/* </carBuyoutContext.Provider > */}
         <Route exact path="/create" element={<Create handleClickShowError={handleClickShowError} />} />
         <Route exact path="/cart" element={<Cart handleClickShowError={handleClickShowError} />} />
@@ -91,7 +92,7 @@ function App() {
         <Route path="/product/:productId" element={<Details handleClickShowError={handleClickShowError} />} />
         <Route exact path="/product/edit/:productId" element={<Edit handleClickShowError={handleClickShowError} />} />
         <Route path="/products" element={<AllProductsCatalog />} />
-
+        <Route path="usloviya-za-polzvane" element={<TermsOfUse />} />
       </Routes>
       <Footer />
     </div>
