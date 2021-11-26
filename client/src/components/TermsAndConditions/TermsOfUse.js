@@ -6,7 +6,7 @@ const TermsOfUse = () => {
 
     return (
         <div>
-            <div className="inner">
+            <div className="inner-terms-of-use">
                 <div className="centered-content">
                     <div className="page-title">
                         <h1>Общи условия</h1>
