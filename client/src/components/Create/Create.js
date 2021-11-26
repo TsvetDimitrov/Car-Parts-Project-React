@@ -13,7 +13,6 @@ function Create({ handleClickShowError }) {
             } catch (err) {
                 navigate('/');
                 handleClickShowError(err.message);
-
             }
         }
         checkIfAdmin();
