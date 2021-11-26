@@ -111,25 +111,25 @@ const Register = ({ handleClickShowError }) => {
                                             <input type="text" name="telNumber" className="required" onBlur={onBlurTelNumber} onFocus={onFocusTelNumber} />
                                         </label>
                                         <label className={`field-label ${addPasswordClass}`}>
-                                            <span>Парола</span>
+                                            <span className="required-field">Парола</span>
                                             <input type="password" name="password" className="required" onBlur={onBlurPassword} onFocus={onFocusPassword} />
                                         </label>
                                         <label className={`field-label ${addRepeatPassClass}`}>
-                                            <span>Повтори паролата</span>
+                                            <span className="required-field">Повтори паролата</span>
                                             <input type="password" name="repeatPass" className="required" onBlur={onBlurRepeatPass} onFocus={onFocusRepeatPass} />
                                         </label>
                                         <div className="agreement">
                                             <label className="field-label checkbox-label">
                                                 <input type="checkbox" name="agreement_1" className="required" />
-                                                <span className="required-field">Съгласен съм с <a
-                                                    href="/usloviya-za-polzvane">условията за ползване</a>
+                                                <span className="required-field"> Съгласен съм с <a
+                                                    href="/usloviya-za-polzvane"> условията за ползване </a>
                                                 и <Link to="/privacy-policy">политиката за защита на лични данни</Link> и имам
                                                 навършени 14 години.
                                             </span>
                                             </label>
                                             <label className="field-label checkbox-label">
                                                 <input type="checkbox" name="agreement_2" className="required" />
-                                                <span className="required-field"> Съгласен съм с <Link to="/obshti-usloviya">общите
+                                                <span className="required-field"> Съгласен съм с <Link to="/obshti-usloviya"> общите
                                                     условия</Link> на търговеца</span>
                                             </label>
                                         </div>

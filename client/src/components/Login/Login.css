@@ -388,3 +388,8 @@ label {
 .register-wrap {
     background: #f3f3f3;
 }
+
+.button-animate-login:hover:before{
+    content: '';
+    background: rgba(255,255,255,.15);
+}
