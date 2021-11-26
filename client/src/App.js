@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import "./App.css";
 
 import { getUser } from './util/authService.js';
@@ -25,6 +25,8 @@ import Cart from './components/Cart/Cart.js';
 function App() {
   const [userInfo, setUserInfo] = useState({ isAuthenticated: false, email: '', isAdmin: 0 });
   const [errorMessage, setErrorMessage] = useState('');
+  const [carInfo, setCarInfo] = useState('');
+  const carBuyoutContext = createContext({});
 
   const handleClickShowError = (msg) => {
     setErrorMessage(msg);
@@ -77,8 +79,10 @@ function App() {
         <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
         <Route exact path="/aboutUs" element={<AboutUs />} />
         <Route exact path="/izkupuvane" element={<Buyout />} />
-        <Route exact path="/izkupuvane/info" element={<BuyoutInfo />} />
-        <Route exact path="/izkupuvane/infopic" element={<BuyoutImages handleClickShowError={handleClickShowError} />} />
+        {/* <carBuyoutContext.Provider value={{ carInfo, setCarInfo }}> */}
+          <Route exact path="/izkupuvane/info" element={<BuyoutInfo carBuyoutContext={carBuyoutContext} />} />
+          <Route exact path="/izkupuvane/infopic" element={<BuyoutImages carBuyoutContext={carBuyoutContext} handleClickShowError={handleClickShowError} />} />
+        {/* </carBuyoutContext.Provider > */}
         <Route exact path="/create" element={<Create handleClickShowError={handleClickShowError} />} />
         <Route exact path="/cart" element={<Cart handleClickShowError={handleClickShowError} />} />
         <Route path="*" element={<Page404 />} />

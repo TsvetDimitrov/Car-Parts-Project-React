@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-
-const BuyoutImages = ({handleClickShowError}) => {
+const BuyoutImages = ({ handleClickShowError, carBuyoutContext }) => {
     let [addImageUrlClass, setAddImageUrlClass] = useState('');
+    const { carInfo, setCarInfo } = useContext(carBuyoutContext);
 
     function onBlurImageUrl(e) {
         if (!e.target.value) {
@@ -24,6 +24,8 @@ const BuyoutImages = ({handleClickShowError}) => {
         if (!imageUrl) {
             return handleClickShowError('Моля въведете адрес на изображение!');
         } else {
+            setCarInfo(...carInfo, imageUrl);
+            console.log(carInfo);
             //FIX DATA STATE FROM PREVIOUS COMPONENT.
             // await createCarBuyOutRequest(carDataState);
             navigate('/');
@@ -49,7 +51,7 @@ const BuyoutImages = ({handleClickShowError}) => {
                     <div className="buyout-step">
 
                         <div className="step-image">
-                            <img src="/images/step-01-active.svg" alt="active-page"/>
+                            <img src="/images/step-01-active.svg" alt="active-page" />
                         </div>
                         <div className="buyout-text">Приложете снимки на вашият автомобил</div>
                     </div>

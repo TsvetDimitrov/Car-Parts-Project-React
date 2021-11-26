@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 
-const BuyoutInfo = () => {
+const BuyoutInfo = ({ carBuyoutContext }) => {
     let [addBrandClass, setAddBrandClass] = useState('');
     let [addModelClass, setAddModelClass] = useState('');
     let [addManufactureYearClass, setAddManufactureYearClass] = useState('');
@@ -10,6 +10,8 @@ const BuyoutInfo = () => {
     let [addGearboxTypeClass, setAddGearboxTypeClass] = useState('');
     let [addPriceWantedClass, setAddPriceWantedClass] = useState('');
     let [addTextClass, setAddTextClass] = useState('');
+    const { carInfo, setCarInfo } = useContext(carBuyoutContext);
+
 
     function onBlurBrand(e) {
         if (!e.target.value) {
@@ -116,6 +118,16 @@ const BuyoutInfo = () => {
 
 
         if (!hasEmptyField) {
+            let carData = {
+                brand,
+                model,
+                manufactureYear,
+                engineType,
+                gearboxType,
+                priceWanted,
+                additionalInfo
+            }
+            setCarInfo(carData);
             navigate('/izkupuvane/infopic');
         }
 
@@ -210,6 +222,4 @@ const BuyoutInfo = () => {
         </div>
     )
 }
-
-
 export default BuyoutInfo;
