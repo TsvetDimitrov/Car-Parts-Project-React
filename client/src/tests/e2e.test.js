@@ -42,7 +42,7 @@ describe('E2E tests', function() {
 
     // Test proper
     describe('Authentication', () => {
-        it.only('register does not work with empty fields', async() => {
+        it('register does not work with empty fields', async() => {
             const { post } = await handle(endpoints.register);
             const isCalled = post().isHandled;
 

@@ -9,10 +9,13 @@ const Details = ({ handleClickShowError }) => {
 
     const [product, setProduct] = useState({});
     const { productId } = useParams();
-    useEffect(async () => {
-        let result = await getProductById(productId);
-        setProduct(result);
-    }, []);
+    useEffect(() => {
+        async function getProduct() {
+            let result = await getProductById(productId);
+            setProduct(result);
+        }
+        getProduct();
+    }, [productId]);
     console.log(product);
     const isAdmin = sessionStorage.getItem('isAdmin');
 
@@ -21,7 +24,7 @@ const Details = ({ handleClickShowError }) => {
             if (!sessionStorage.getItem('email')) {
                 throw new Error('Моля, влезте в профила си!');
             }
-            const result = await addProductToCart(productId);
+            await addProductToCart(productId);
             handleClickShowError('Продукта е добавен в количката успешно!');
         } catch (err) {
             handleClickShowError(err.message);

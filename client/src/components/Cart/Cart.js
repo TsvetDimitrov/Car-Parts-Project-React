@@ -20,18 +20,19 @@ const Cart = ({ handleClickShowError }) => {
             .then(result => {
                 setProducts(result.userOrders);
             })
-    }, []);
+    }, [handleClickShowError, navigate]);
 
 
     console.log(products);
 
     async function deleteProductFromCart(e) {
+
         e.preventDefault();
         const table = e.target.parentNode.parentNode;
         const id = table.querySelector('.product-title-text').href.split('/')[4];
         await removeProductFromCart(id);
-        table.remove();
-        //TODO DON'T RELOAD THE WHOLE PAGE AFTER THE DELETE. 
+        setProducts([...products].filter(product => product._id !== id));
+        // table.remove();
     }
 
     return (
@@ -58,12 +59,15 @@ const Cart = ({ handleClickShowError }) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {products.length == 0 ? null :
+                                    {products.length === 0 ?
+                                        <tr>
+                                            <td>Няма добавени продукти в количката.</td>
+                                        </tr> :
                                         products.map((product) =>
-                                            <tr className="row" scope="row" key={product._id}>
+                                            <tr className="row" key={product._id}>
                                                 <th scope="row" className="product-image-title">
                                                     <div className="product-div">
-                                                        <img src={product.imageUrl} className="cart-product-image" width="90" height="90" />
+                                                        <img src={product.imageUrl} className="cart-product-image" width="90" height="90" alt="" />
                                                         <div className="product-title">
                                                             <h4><Link to={`/product/${product._id}`} className="product-title-text">{product.title}</Link></h4>
                                                         </div>

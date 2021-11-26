@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { createPart, isUserAdmin } from '../../api/data.js';
 import './Create.css';
 
@@ -17,8 +17,6 @@ function Create({ handleClickShowError }) {
         }
         checkIfAdmin();
     })
-
-
 
     let categoryItemsData = [
         ['Аудио, видео, навигации', 'CD Чейнджъри'],

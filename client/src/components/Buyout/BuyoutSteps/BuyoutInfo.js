@@ -98,7 +98,7 @@ const BuyoutInfo = () => {
         let hasEmptyField = false;
 
         for (let entry of formData.entries()) {
-            if (entry[1] == '') {
+            if (entry[1] === '') {
                 hasEmptyField = true;
                 const el = document.querySelector(`input[name="${entry[0]}"]`) || document.querySelector(`textarea[name="text"]`);
                 const label = el.parentNode;
@@ -139,14 +139,14 @@ const BuyoutInfo = () => {
                 <div className="buyout-steps">
                     <div className="buyout-step active">
                         <div className="step-image">
-                            <img src="/images/step-01-active.svg" />
+                            <img src="/images/step-01-active.svg" alt="" />
                         </div>
                         <div className="buyout-text">Въведете данните за вашия автомобил</div>
                     </div>
                     <div className="buyout-separator-step"></div>
                     <div className="buyout-step">
                         <div className="step-image">
-                            <img src="/images/step-02-inactive.svg" />
+                            <img src="/images/step-02-inactive.svg" alt="" />
                         </div>
                         <div className="buyout-text">Приложете снимки на вашият автомобил</div>
                     </div>

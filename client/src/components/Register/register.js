@@ -10,12 +10,6 @@ const Register = ({ handleClickShowError }) => {
     let [addPasswordClass, setAddPasswordClass] = useState('');
     let [addRepeatPassClass, setAddRepeatPassClass] = useState('');
 
-    const [name, setName] = useState("");
-    const [email, setMail] = useState("");
-    const [telNumber, setTelNumber] = useState("");
-    const [password, setPassword] = useState("");
-    const [repeatPass, setRepeatPass] = useState("");
-
     //TODO make it abstract. 
     function onBlurName(e) {
         if (!e.target.value) {
@@ -84,7 +78,7 @@ const Register = ({ handleClickShowError }) => {
             return handleClickShowError('Всички полета са задължителни!');
         }
 
-        if (password != repeatPass) {
+        if (password !== repeatPass) {
             return handleClickShowError('Паролите не съвпадат!');
         }
 
@@ -106,23 +100,23 @@ const Register = ({ handleClickShowError }) => {
                                         id="memberLoginForm">
                                         <label className={`field-label ${addNameClass}`}>
                                             <span className="required-field">Име</span>
-                                            <input type="text" name="name" className="required" onChange={setName} onBlur={onBlurName} onFocus={onFocusName} />
+                                            <input type="text" name="name" className="required" onBlur={onBlurName} onFocus={onFocusName} />
                                         </label>
                                         <label className={`field-label ${addEmailClass}`}>
                                             <span className="required-field">E-mail</span>
-                                            <input type="text" name="email" className="required" onChange={setMail} onBlur={onBlurEmail} onFocus={onFocusEmail} />
+                                            <input type="text" name="email" className="required" onBlur={onBlurEmail} onFocus={onFocusEmail} />
                                         </label>
                                         <label className={`field-label ${addTelNumberClass}`}>
                                             <span className="required-field">Телефон</span>
-                                            <input type="text" name="telNumber" className="required" onChange={setTelNumber} onBlur={onBlurTelNumber} onFocus={onFocusTelNumber} />
+                                            <input type="text" name="telNumber" className="required" onBlur={onBlurTelNumber} onFocus={onFocusTelNumber} />
                                         </label>
                                         <label className={`field-label ${addPasswordClass}`}>
                                             <span>Парола</span>
-                                            <input type="password" name="password" className="required" onChange={setPassword} onBlur={onBlurPassword} onFocus={onFocusPassword} />
+                                            <input type="password" name="password" className="required" onBlur={onBlurPassword} onFocus={onFocusPassword} />
                                         </label>
                                         <label className={`field-label ${addRepeatPassClass}`}>
                                             <span>Повтори паролата</span>
-                                            <input type="password" name="repeatPass" className="required" onChange={setRepeatPass} onBlur={onBlurRepeatPass} onFocus={onFocusRepeatPass} />
+                                            <input type="password" name="repeatPass" className="required" onBlur={onBlurRepeatPass} onFocus={onFocusRepeatPass} />
                                         </label>
                                         <div className="agreement">
                                             <label className="field-label checkbox-label">

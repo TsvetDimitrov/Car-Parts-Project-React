@@ -18,7 +18,7 @@ const PartsCatalog = () => {
                 setParts(result[0]);
                 setpartType(result[1]);
             })
-    }, []);
+    }, [productCategory]);
 
     return (
         <div className="content-products">

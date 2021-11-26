@@ -24,7 +24,7 @@ const Edit = ({
             }
         }
         checkIfAdminAndGetProducts()
-    }, []);
+    }, [handleClickShowError, navigate, productId]);
 
 
     const handleChange = e => {

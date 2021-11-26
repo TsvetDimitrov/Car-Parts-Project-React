@@ -18,7 +18,7 @@ const BrandCatalog = () => {
                 setParts(result[0]);
                 setBrand(result[1]);
             })
-    }, []);
+    }, [brandName]);
 
     return (<div className="content-products">
         <div className="heading">
