@@ -1,7 +1,9 @@
 import { useContext, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import carBuyoutContext from '../../../contexts/CarBuyoutContext.js';
+import { createCarBuyOutRequest } from '../../../api/data.js';
 
-const BuyoutImages = ({ handleClickShowError, carBuyoutContext }) => {
+const BuyoutImages = ({ handleClickShowError }) => {
     let [addImageUrlClass, setAddImageUrlClass] = useState('');
     const { carInfo, setCarInfo } = useContext(carBuyoutContext);
 
@@ -24,10 +26,10 @@ const BuyoutImages = ({ handleClickShowError, carBuyoutContext }) => {
         if (!imageUrl) {
             return handleClickShowError('Моля въведете адрес на изображение!');
         } else {
-            setCarInfo(...carInfo, imageUrl);
+            setCarInfo({ ...carInfo, imageUrl });
             console.log(carInfo);
             //FIX DATA STATE FROM PREVIOUS COMPONENT.
-            // await createCarBuyOutRequest(carDataState);
+            await createCarBuyOutRequest({...carInfo, imageUrl});
             navigate('/');
         }
     }

@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect } from 'react';
 import "./App.css";
 
+import carBuyoutContext from './contexts/CarBuyoutContext.js';
 import { getUser } from './util/authService.js';
 import Home from './components/Home/Home.js';
 import Navigation from "./components/Navigation/Navigation.js";
@@ -27,7 +28,6 @@ function App() {
   const [userInfo, setUserInfo] = useState({ isAuthenticated: false, email: '', isAdmin: 0 });
   const [errorMessage, setErrorMessage] = useState('');
   const [carInfo, setCarInfo] = useState('');
-  const carBuyoutContext = createContext({});
 
   const handleClickShowError = (msg) => {
     setErrorMessage(msg);
@@ -73,27 +73,27 @@ function App() {
           </div>
         </section>
       }
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/register" element={<Register handleClickShowError={handleClickShowError} />} />
-        <Route exact path="/login" element={<Login onLogin={onLogin} handleClickShowError={handleClickShowError} />} />
-        <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
-        <Route exact path="/aboutUs" element={<AboutUs />} />
-        <Route exact path="/izkupuvane" element={<Buyout />} />
-        {/* <carBuyoutContext.Provider value={{ carInfo, setCarInfo }}> */}
-        <Route exact path="/izkupuvane/info" element={<BuyoutInfo carBuyoutContext={carBuyoutContext} />} />
-        <Route exact path="/izkupuvane/infopic" element={<BuyoutImages carBuyoutContext={carBuyoutContext} handleClickShowError={handleClickShowError} />} />
-        {/* </carBuyoutContext.Provider > */}
-        <Route exact path="/create" element={<Create handleClickShowError={handleClickShowError} />} />
-        <Route exact path="/cart" element={<Cart handleClickShowError={handleClickShowError} />} />
-        <Route path="*" element={<Page404 />} />
-        <Route path="/products/:productCategory" element={<PartsCatalog />} />
-        <Route path="/products/brand/:brandName" element={<BrandCatalog />} />
-        <Route path="/product/:productId" element={<Details handleClickShowError={handleClickShowError} />} />
-        <Route exact path="/product/edit/:productId" element={<Edit handleClickShowError={handleClickShowError} />} />
-        <Route path="/products" element={<AllProductsCatalog />} />
-        <Route path="usloviya-za-polzvane" element={<TermsOfUse />} />
-      </Routes>
+      <carBuyoutContext.Provider value={{ carInfo, setCarInfo }}>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/register" element={<Register handleClickShowError={handleClickShowError} />} />
+          <Route exact path="/login" element={<Login onLogin={onLogin} handleClickShowError={handleClickShowError} />} />
+          <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
+          <Route exact path="/aboutUs" element={<AboutUs />} />
+          <Route exact path="/izkupuvane" element={<Buyout />} />
+          <Route exact path="/izkupuvane/info" element={<BuyoutInfo />} />
+          <Route exact path="/izkupuvane/infopic" element={<BuyoutImages handleClickShowError={handleClickShowError} />} />
+          <Route exact path="/create" element={<Create handleClickShowError={handleClickShowError} />} />
+          <Route exact path="/cart" element={<Cart handleClickShowError={handleClickShowError} />} />
+          <Route path="*" element={<Page404 />} />
+          <Route path="/products/:productCategory" element={<PartsCatalog />} />
+          <Route path="/products/brand/:brandName" element={<BrandCatalog />} />
+          <Route path="/product/:productId" element={<Details handleClickShowError={handleClickShowError} />} />
+          <Route exact path="/product/edit/:productId" element={<Edit handleClickShowError={handleClickShowError} />} />
+          <Route path="/products" element={<AllProductsCatalog />} />
+          <Route path="usloviya-za-polzvane" element={<TermsOfUse />} />
+        </Routes>
+      </carBuyoutContext.Provider >
       <Footer />
     </div>
   );

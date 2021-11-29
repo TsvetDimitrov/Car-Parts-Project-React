@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useContext } from 'react';
+import carBuyoutContext from '../../../contexts/CarBuyoutContext.js';
 
-
-const BuyoutInfo = ({ carBuyoutContext }) => {
+const BuyoutInfo = () => {
     let [addBrandClass, setAddBrandClass] = useState('');
     let [addModelClass, setAddModelClass] = useState('');
     let [addManufactureYearClass, setAddManufactureYearClass] = useState('');
@@ -118,16 +118,23 @@ const BuyoutInfo = ({ carBuyoutContext }) => {
 
 
         if (!hasEmptyField) {
-            let carData = {
+            const carData = {
                 brand,
                 model,
                 manufactureYear,
                 engineType,
                 gearboxType,
                 priceWanted,
-                additionalInfo
+                additionalInfo,
             }
-            setCarInfo(carData);
+            setCarInfo({...carInfo, brand,
+                model,
+                manufactureYear,
+                engineType,
+                gearboxType,
+                priceWanted,
+                additionalInfo});
+            console.log(carInfo);
             navigate('/izkupuvane/infopic');
         }
 
