@@ -28,7 +28,6 @@ const BuyoutImages = ({ handleClickShowError }) => {
         } else {
             setCarInfo({ ...carInfo, imageUrl });
             console.log(carInfo);
-            //FIX DATA STATE FROM PREVIOUS COMPONENT.
             await createCarBuyOutRequest({...carInfo, imageUrl});
             navigate('/');
         }

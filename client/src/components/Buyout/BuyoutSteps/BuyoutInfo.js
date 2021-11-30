@@ -118,15 +118,6 @@ const BuyoutInfo = () => {
 
 
         if (!hasEmptyField) {
-            const carData = {
-                brand,
-                model,
-                manufactureYear,
-                engineType,
-                gearboxType,
-                priceWanted,
-                additionalInfo,
-            }
             setCarInfo({...carInfo, brand,
                 model,
                 manufactureYear,
