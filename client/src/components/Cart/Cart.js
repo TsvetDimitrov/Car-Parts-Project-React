@@ -22,9 +22,6 @@ const Cart = ({ handleClickShowError }) => {
             })
     }, [handleClickShowError, navigate]);
 
-
-    console.log(products);
-
     async function deleteProductFromCart(e) {
 
         e.preventDefault();

@@ -26,7 +26,6 @@ async function getPartsByBrand(brandName) {
 }
 
 async function getPartById(id) {
-    console.log("HERE", id);
     const part = await Part.findById(id).lean();
 
     return part;

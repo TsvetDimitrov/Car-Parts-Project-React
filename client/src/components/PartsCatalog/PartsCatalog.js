@@ -12,7 +12,6 @@ const PartsCatalog = () => {
     const { productCategory } = useParams();
 
     useEffect(() => {
-
         getPartsByType(productCategory)
             .then(result => {
                 setParts(result[0]);
@@ -24,14 +23,19 @@ const PartsCatalog = () => {
         <div className="content-products">
             <div className="heading">
                 <h1 className="title heading">
-                    {partType} </h1>
+                    {partType}
+                </h1>
             </div>
             <div className="products-list">
 
-                {parts.length === 0 ? <div className="no-items">
-                    <p className="text">Все още няма налични части, отговарящи на тази категория.</p>
-                    <span className="icon"></span>
-                </div> : parts.map(x => <PartCard key={x._id} part={x} />)}
+
+                {parts.length === 0 ?
+                    <div className="no-items">
+                        <p className="text">Все още няма налични части, отговарящи на тази категория.</p>
+                        <span className="icon"></span>
+                    </div>
+                    :
+                    parts.map(x => <PartCard key={x._id} part={x} />)}
             </div>
         </div>
     )
