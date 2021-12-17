@@ -71,3 +71,7 @@ export async function getProductsByBrand(brand) {
 export async function createCarBuyOutRequest(carData) {
     return await api.post(host + '/carRequests', carData);
 }
+
+export async function getCarRequests(){
+    return await api.get(host + '/carRequests');
+}

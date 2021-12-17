@@ -22,6 +22,7 @@ import AllProductsCatalog from './components/PartsCatalog/AllProductsCatalog.js'
 import Details from './components/Details/Details.js';
 import Edit from './components/Edit/Edit.js';
 import Cart from './components/Cart/Cart.js';
+import CarRequests from './components/CarRequests/CarRequests.js';
 import TermsOfUse from './components/TermsAndConditions/TermsOfUse.js';
 
 function App() {
@@ -91,6 +92,7 @@ function App() {
           <Route path="/product/:productId" element={<Details handleClickShowError={handleClickShowError} />} />
           <Route exact path="/product/edit/:productId" element={<Edit handleClickShowError={handleClickShowError} />} />
           <Route path="/products" element={<AllProductsCatalog />} />
+          <Route path="/car-requests" element={<CarRequests />} />
           <Route path="usloviya-za-polzvane" element={<TermsOfUse />} />
         </Routes>
       </carBuyoutContext.Provider >
