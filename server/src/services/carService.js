@@ -11,6 +11,13 @@ async function createCar(partData, userEmail) {
     return car;
 }
 
+async function getCarRequests(){
+    const cars = await Car.find({}).lean();
+
+    return cars;
+}
+
 module.exports = {
     createCar,
+    getCarRequests
 }

@@ -5,7 +5,7 @@ const { expect } = require('chai');
 
 const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
 const interval = 300;
-const DEBUG = true;
+const DEBUG = false;
 const slowMo = 500;
 
 const mockData = require('./sampleUserData.json');
@@ -60,8 +60,6 @@ describe('E2E tests', function() {
             await page.click('[name="telNumber"]');
 
             await page.click('[name="password"]');
-
-            await page.click('[name="repeatPass"]');
 
             await page.click('[name="agreement_1"]');
 
@@ -137,7 +135,7 @@ describe('E2E tests', function() {
             expect(postData.password).to.equal(data.password);
         });
 
-        it('logout makes correct API call [ 5 Points ]', async() => {
+        it('logout makes correct API call', async() => {
             const data = mockData.users[0];
             const { post } = await handle(endpoints.login);
             const { get } = await handle(endpoints.logout);
@@ -167,6 +165,76 @@ describe('E2E tests', function() {
             expect(request.method()).to.equal('GET');
         });
     });
+
+    describe('Navigation bar', () => {
+        const email = 'cecko@abv.bg';
+        const password = '123';
+
+        it('logged user should see correct navigation', async () => {
+            // Login user
+            const endpoint = '**' + endpoints.login;
+
+
+            await page.goto(host);
+            await page.click('[href="/login"]');
+
+            await page.waitForTimeout(300);
+            await page.waitForSelector('form');
+
+            await page.fill('[name="email"]', "test@abv.bg");
+            await page.fill('[name="password"]', "123");
+
+            await page.waitForTimeout(300);
+            
+            await Promise.all([
+                page.waitForResponse(endpoint),
+                page.click('[type="submit"]')
+            ]);
+            //Test for navigation
+            await page.waitForTimeout(300);
+
+            expect(await page.isVisible('.topnav >> text="Изход"')).to.be.true;
+
+
+        });
+
+        it('guest user should see correct navigation', async () => {
+            await page.goto(host);
+
+            await page.waitForTimeout(300);
+
+            expect(await page.isVisible('text="Вход"')).to.be.true;
+        });
+
+        
+        it('admin user should see correct navigation', async () => {
+            const endpoint = '**' + endpoints.login;
+
+
+            await page.goto(host);
+            await page.click('[href="/login"]');
+
+            await page.waitForTimeout(300);
+            await page.waitForSelector('form');
+
+            await page.fill('[name="email"]', email);
+            await page.fill('[name="password"]', password);
+
+            await page.waitForTimeout(300);
+
+            await Promise.all([
+                page.waitForResponse(endpoint),
+                page.click('[type="submit"]')
+            ]);
+            //Test for navigation
+            await page.waitForTimeout(300);
+
+            expect(await page.isVisible('.admin')).to.be.true;
+
+        });
+    });
+
+  
 });
 
 function handle(match, handlers) {
