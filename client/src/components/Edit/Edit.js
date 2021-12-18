@@ -15,7 +15,6 @@ const Edit = ({
         async function checkIfAdminAndGetProducts() {
             try {
                 const isAdmin = await isUserAdmin();
-                console.log(isAdmin);
                 let result = await getProductById(productId);
                 setProductData(result);
             } catch (err) {
@@ -57,7 +56,7 @@ const Edit = ({
         if (!category || !type || !brand || !model || !title || !price) {
             return handleClickShowError('Category, type, brand, model, title and price са задължителни!');
         }
-        await editPartById(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price, productId);
+        await editPartById(category, type, brand, model, Number(yearFrom), Number(yearTo), engineType, partColor, imageUrl, condition, title, price, productId);
         navigate(`/product/${productId}`);
     }
 
