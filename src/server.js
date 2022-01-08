@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const passport = require('passport');
+const path = require('path');
 
 const { PORT, FB_LOGIN } = require('./config/constants');
 const databaseConfig = require('./config/database');
@@ -45,7 +46,12 @@ async function start() {
     //Can use cors library instead of that.
     app.use(cors());
 
-
+    if(process.env.NODE_ENV == "production"){
+        app.use(express.static('../client/build'));
+        app.get('*', (req, res) => {
+            req.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+        });
+    }
 
     app.get('/', (req, res) => {
         res.json({ text: 'It\'s working!' });
