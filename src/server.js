@@ -10,17 +10,17 @@ const routesConfig = require('./config/routes');
 const expressConfig = require('./config/express');
 
 
-passport.serializeUser(function (user, done) {
-    console.log('serializeUser: ' + user._id);
-    done(null, user._id);
-});
-passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
-        console.log(user);
-        if (!err) done(null, user);
-        else done(err, null);
-    });
-});
+// passport.serializeUser(function (user, done) {
+//     console.log('serializeUser: ' + user._id);
+//     done(null, user._id);
+// });
+// passport.deserializeUser(function (id, done) {
+//     User.findById(id, function (err, user) {
+//         console.log(user);
+//         if (!err) done(null, user);
+//         else done(err, null);
+//     });
+// });
 
 passport.use(new FacebookStrategy({
     clientID: FB_LOGIN.facebook_api_key,
