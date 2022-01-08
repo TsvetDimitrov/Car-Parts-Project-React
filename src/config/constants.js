@@ -1,6 +1,6 @@
 module.exports = {
     PORT: process.env.PORT || 3030,
-    DB_CONNECTION_STRING: 'mongodb://localhost:27017/carParts',
+    DB_CONNECTION_STRING: 'mongodb+srv://TsvetomirAdminUser:Parolata12@cluster0.i98ec.mongodb.net/test',//'mongodb://localhost:27017/carParts',
     TOKEN_SECRET: 'verysecuretoken2323',
     COOKIE_NAME: 'SESSION_TOKEN',
     FB_LOGIN: {
