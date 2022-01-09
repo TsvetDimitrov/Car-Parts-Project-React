@@ -5,7 +5,7 @@ import "./App.css";
 import carBuyoutContext from './contexts/CarBuyoutContext.js';
 import { getUser } from './util/authService.js';
 import Home from './components/Home/Home.js';
-import Navigation from './components/Navigation/Navigation.js';
+// import Navigation from './components/Navigation/Navigation.js';
 import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
 import Logout from './components/Logout/Logout.js';
