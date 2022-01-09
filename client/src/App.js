@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { unregister } from './registerServiceWorker';
 import "./App.css";
 
 import carBuyoutContext from './contexts/CarBuyoutContext.js';
