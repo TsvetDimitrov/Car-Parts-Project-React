@@ -53,13 +53,6 @@ async function start() {
         });
     }
 
-    // if (process.env.NODE_ENV === "production") {
-    //     app.use(express.static('../client/build'));
-    //     app.get('*', (req, res) => {
-    //         var reqPath = path.join(__dirname, '../'); 
-    //         res.sendFile(path.resolve(reqPath, "client", "build", "index.html"));
-    //     });
-    // }
     app.get('/', (req, res) => {
         res.json({ text: 'It\'s working!' });
     });
