@@ -21,7 +21,7 @@ import Edit from './components/Edit/Edit.js';
 import Cart from './components/Cart/Cart.js';
 import CarRequests from './components/CarRequests/CarRequests.js';
 import TermsOfUse from './components/TermsAndConditions/TermsOfUse.js';
-import Navigation from './components/Navigation/Navigation.js';
+import Navigations from './components/Navigation/Navigations.js';
 import Register from './components/Register/Register.js';
 import Login from './components/Login/Login.js';
 
@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation {...userInfo} />
+      <Navigations {...userInfo} />
       {errorMessage &&
         <section id="notifications">
           <div id="errorBox" className="notification" style={errorMessage ? { display: "block" } : { display: "none" }}>
