@@ -47,9 +47,9 @@ async function start() {
     app.use(cors());
     if (process.env.NODE_ENV === "production") {
 
-        app.use(express.static('srce/client/build'));
+        app.use(express.static('src/client/build'));
         app.get('*', (req, res) => {
-            res.sendFile(path.resolve(__dirname, 'srce/client/build', 'index.html'));
+            res.sendFile(path.resolve(__dirname, 'src/client/build', 'index.html'));
         });
     }
 

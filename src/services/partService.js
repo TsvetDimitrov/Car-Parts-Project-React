@@ -1,5 +1,5 @@
 const Part = require('../models/Part');
-const userService = require('../services/userService');
+const userService = require('./userService');
 
 async function createPart(partData) {
     const part = new Part(partData);

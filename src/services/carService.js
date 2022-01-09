@@ -1,5 +1,5 @@
 const Car = require('../models/Car');
-const userService = require('../services/userService');
+const userService = require('./userService');
 
 
 async function createCar(partData, userEmail) {
