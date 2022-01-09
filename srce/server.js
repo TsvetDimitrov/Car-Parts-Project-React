@@ -46,13 +46,20 @@ async function start() {
     //Can use cors library instead of that.
     app.use(cors());
 
-    if(process.env.NODE_ENV == "production"){
-        app.use(express.static(__dirname + 'client/build'));
+    if (process.env.NODE_ENV == "production") {
+        app.use(express.static('client/build'));
         app.get('*', (req, res) => {
-            res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
+            res.sendFile(path.resolve(__dirname, 'client', "build", 'index.html'));
         });
     }
 
+    // if (process.env.NODE_ENV === "production") {
+    //     app.use(express.static('../client/build'));
+    //     app.get('*', (req, res) => {
+    //         var reqPath = path.join(__dirname, '../'); 
+    //         res.sendFile(path.resolve(reqPath, "client", "build", "index.html"));
+    //     });
+    // }
     app.get('/', (req, res) => {
         res.json({ text: 'It\'s working!' });
     });
