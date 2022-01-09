@@ -14,7 +14,7 @@ const Edit = ({
     useEffect(() => {
         async function checkIfAdminAndGetProducts() {
             try {
-                const isAdmin = await isUserAdmin();
+                await isUserAdmin();
                 let result = await getProductById(productId);
                 setProductData(result);
             } catch (err) {
