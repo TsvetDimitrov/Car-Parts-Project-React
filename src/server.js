@@ -28,7 +28,6 @@ passport.use(new FacebookStrategy({
     callbackURL: "http://localhost:3030/auth/facebook/callback"
 },
     function (accessToken, refreshToken, profile, cb) {
-        console.log('HERE awesome guy.')
         User.findOrCreate({ facebookId: profile.id }, function (err, user) {
             if (err) { return cb(err); }
             cb(null, user);
@@ -49,7 +48,7 @@ async function start() {
 
         app.use(express.static('src/client/build'));
         app.get('*', (req, res) => {
-            res.sendFile(path.resolve(__dirname, '/client/build', 'index.html'));
+            res.sendFile(path.resolve(__dirname, 'src/client/build', 'index.html'));
         });
     }
 
