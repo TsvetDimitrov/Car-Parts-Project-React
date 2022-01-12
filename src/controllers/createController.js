@@ -5,11 +5,11 @@ router.get('/', async(req, res) => {
     try {
         await req.auth.getToken();
         if (!req.user) {
-            res.status(401).json({ ok: false, message: 'Недостатъчно права!' });
+            return res.status(401).json({ ok: false, message: 'Недостатъчно права!' });
         }
         const user = await userService.getUserByEmail(req.user.email);
         if (user.isAdmin == 0) {
-            res.status(401).json({ ok: false, message: 'Недостатъчно права!' });
+            return res.status(401).json({ ok: false, message: 'Недостатъчно права!' });
             throw new Error('Недостатъчно права!');
         }
 
