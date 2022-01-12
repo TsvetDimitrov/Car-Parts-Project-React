@@ -5,8 +5,8 @@ const carController = require('../controllers/carController');
 
 
 module.exports = (app) => {
-    app.use('/create', createController);
-    app.use('/auth', authController);
-    app.use('/parts', partController);
-    app.use('/carRequests', carController);
+    app.use('/api/create', createController);
+    app.use('/api/auth', authController);
+    app.use('/api/parts', partController);
+    app.use('/api/carRequests', carController);
 };
