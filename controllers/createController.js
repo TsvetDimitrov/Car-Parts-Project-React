@@ -13,7 +13,7 @@ router.get('/', async(req, res) => {
             throw new Error('Недостатъчно права!');
         }
 
-        res.status(200).json({ ok: true });
+        return res.status(200).json({ ok: true });
     } catch (err) {
         console.log(err.message);
     }

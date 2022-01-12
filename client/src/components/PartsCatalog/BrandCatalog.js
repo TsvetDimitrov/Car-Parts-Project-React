@@ -11,7 +11,7 @@ const BrandCatalog = () => {
     const [brand, setBrand] = useState('');
 
     const { brandName } = useParams();
-
+    console.log(brandName)
     useEffect(() => {
         getProductsByBrand(brandName.toUpperCase())
             .then(result => {
@@ -19,7 +19,7 @@ const BrandCatalog = () => {
                 setBrand(result[1]);
             })
     }, [brandName]);
-
+    console.log(parts);
     return (<div className="content-products">
         <div className="heading">
             <h1 className="title heading">

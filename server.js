@@ -22,18 +22,18 @@ const expressConfig = require('./config/express');
 //     });
 // });
 
-passport.use(new FacebookStrategy({
-    clientID: FB_LOGIN.facebook_api_key,
-    clientSecret: FB_LOGIN.facebook_api_secret,
-    callbackURL: "http://localhost:3030/auth/facebook/callback"
-},
-    function (accessToken, refreshToken, profile, cb) {
-        User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-            if (err) { return cb(err); }
-            cb(null, user);
-        });
-    }
-));
+// passport.use(new FacebookStrategy({
+//     clientID: FB_LOGIN.facebook_api_key,
+//     clientSecret: FB_LOGIN.facebook_api_secret,
+//     callbackURL: "http://localhost:3030/auth/facebook/callback"
+// },
+//     function (accessToken, refreshToken, profile, cb) {
+//         User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+//             if (err) { return cb(err); }
+//             cb(null, user);
+//         });
+//     }
+// ));
 
 start();
 async function start() {
@@ -44,6 +44,14 @@ async function start() {
 
     //Can use cors library instead of that.
     app.use(cors());
+
+
+    app.get('/api', (req, res) => {
+        res.json({ text: 'It\'s working!' });
+    });
+
+    routesConfig(app);
+
     if (process.env.NODE_ENV === 'production') {
         // Set static folder
         app.use(express.static('client/build'));
@@ -52,12 +60,6 @@ async function start() {
             res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
         });
     }
-
-    app.get('/api', (req, res) => {
-        res.json({ text: 'It\'s working!' });
-    });
-
-    routesConfig(app);
 
     app.listen(PORT, () => console.log(`App started at http://localhost:${PORT}`));
 }
