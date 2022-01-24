@@ -1,7 +1,9 @@
+require('dotenv').config();
+
+
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const { TOKEN_SECRET, COOKIE_NAME } = require('../config/constants');
 const userService = require('../services/userService');
 const tokenService = require('../services/tokenService');
 
@@ -11,7 +13,7 @@ module.exports = () => (req, res, next) => {
         req.auth = {
             async register(name, email, phoneNumber, password) {
                 const { user, token } = await register(name, email, phoneNumber, password);
-                res.cookie(COOKIE_NAME, token);
+                res.cookie(process.env.COOKIE_NAME, token);
                 return {
                     name: user.name,
                     _id: user._id,
@@ -23,7 +25,7 @@ module.exports = () => (req, res, next) => {
             },
             async login(email, password) {
                 const { user, token } = await login(email, password);
-                res.cookie(COOKIE_NAME, token);
+                res.cookie(process.env.COOKIE_NAME, token);
                 return {
                     name: user.name,
                     _id: user._id,
@@ -39,7 +41,7 @@ module.exports = () => (req, res, next) => {
 
                 try {
                     if (token) {
-                        const userData = jwt.verify(token, TOKEN_SECRET);
+                        const userData = jwt.verify(token, process.env.TOKEN_SECRET);
                         req.user = userData;
                     }
                 } catch (err) {
@@ -48,7 +50,7 @@ module.exports = () => (req, res, next) => {
                 }
             },
             logout() {
-                res.clearCookie(COOKIE_NAME);
+                res.clearCookie(process.env.COOKIE_NAME);
             }
         };
         next();
@@ -100,20 +102,20 @@ function generateToken(userData) {
         email: userData.email,
         phoneNumber: userData.phoneNumber,
         name: userData.name
-    }, TOKEN_SECRET);
+    }, process.env.TOKEN_SECRET);
 };
 
 function parseToken(req, res) {
-    const token = req.cookies[COOKIE_NAME];
+    const token = req.cookies[process.env.COOKIE_NAME];
 
     if (token) {
         try {
-            const userData = jwt.verify(token, TOKEN_SECRET);
+            const userData = jwt.verify(token, process.env.TOKEN_SECRET);
             req.user = userData;
             res.locals.user = userData;
         } catch (err) {
             console.log(err.message);
-            res.clearCookie(COOKIE_NAME);
+            res.clearCookie(process.env.COOKIE_NAME);
             return false;
         }
     }

@@ -63,7 +63,7 @@ export async function del(url) {
 
 
 export async function login(email, password) {
-    const result = await post('/api/auth/login', { email, password });
+    const result = await post('http://localhost:3030/api/auth/login', { email, password });
 
     sessionStorage.setItem('name', result.name);
     sessionStorage.setItem('email', result.email);

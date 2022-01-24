@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const FacebookStrategy = require('passport-facebook').Strategy;
@@ -61,5 +63,5 @@ async function start() {
         });
     }
 
-    app.listen(PORT, () => console.log(`App started at http://localhost:${PORT}`));
+    app.listen(process.env.PORT, () => console.log(`App started at http://localhost:${process.env.PORT}`));
 }
