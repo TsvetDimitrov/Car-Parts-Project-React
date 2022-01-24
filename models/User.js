@@ -12,6 +12,7 @@ const userSchema = new mongoose.Schema({
     isAdmin: { type: Number, default: 0 },
     password: { type: String, required: [true, 'Password is required!'] },
     orders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Part', default: [] }],
+    isEmailVerified: {type: Boolean, default: false},
     facebookId: { type: String },
 });
 

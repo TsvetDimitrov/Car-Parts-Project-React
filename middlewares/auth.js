@@ -3,6 +3,8 @@ const jwt = require('jsonwebtoken');
 
 const { TOKEN_SECRET, COOKIE_NAME } = require('../config/constants');
 const userService = require('../services/userService');
+const tokenService = require('../services/tokenService');
+
 
 module.exports = () => (req, res, next) => {
     if (parseToken(req, res)) {
@@ -62,6 +64,8 @@ async function register(name, email, phoneNumber, password) {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await userService.createUser(name, email, phoneNumber, hashedPassword);
+    let tokenEmail = tokenService.createEmailToken(user._id, email, user.name);
+
     const token = generateToken(user);
     return { user, token };
 
@@ -80,11 +84,15 @@ async function login(email, password) {
         const err = new Error('Грешна парола!');
         err.type = 'credential';
         throw err;
+    }else if(!user.isVerified){
+        const err = new Error('Вашият имейл адрес не е потвърден. Моля потвърдете го и пробвайте отново!');
+        err.type = 'unverified email';
     }
     const token = generateToken(user);
     return { user, token };
 
 }
+
 
 function generateToken(userData) {
     return jwt.sign({

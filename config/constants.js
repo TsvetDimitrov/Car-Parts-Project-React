@@ -12,5 +12,6 @@ module.exports = {
         "username": "root",
         "password": "",
         "database": "Database Name"
-    }
+    },
+    SENDGRID_APIKEY: "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"
 }

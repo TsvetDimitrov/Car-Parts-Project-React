@@ -76,7 +76,7 @@ export async function login(email, password) {
 
 
 export async function register(name, email, phoneNumber, password) {
-    const result = await post('/api/auth/register', { name, email, phoneNumber, password });
+    const result = await post('http://localhost:3030/api/auth/register', { name, email, phoneNumber, password });
     sessionStorage.setItem('name', result.name);
     sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('phoneNumber', result.phoneNumber);

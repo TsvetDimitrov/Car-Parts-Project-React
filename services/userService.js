@@ -21,8 +21,32 @@ async function getUserByEmail(email) {
 }
 
 
+async function verifyUserEmailToken(res, userId, email) {
+    console.log(userId, email);
+    User.findOne({ _id: userId, email: email }, function (err, user) {
+        if (!user) {
+            return res.status(401).send({ msg: 'We were unable to find a user for this verification. Please SignUp!' });
+        } else if (user.isEmailVerified) {
+            return res.status(200).send('User has been already verified. Please Login');
+        } else {
+            user.isEmailVerified = true;
+            user.save(function (err) {
+                if (err) {
+                    return res.status(500).send({ msg: err.message });
+                } else {
+                    return res.status(200).send('Your account has been successfully verified');
+                }
+
+            });
+        }
+
+
+    });
+}
+
 
 module.exports = {
     createUser,
-    getUserByEmail
+    getUserByEmail,
+    verifyUserEmailToken
 }

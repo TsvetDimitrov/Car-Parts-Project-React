@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
-
+const tokenService = require('../services/tokenService');
+const userService = require('../services/userService');
 
 router.post('/register', async (req, res) => {
     const { name, email, phoneNumber, password } = req.body;
@@ -54,6 +55,10 @@ router.get('/logout', async (req, res) => {
     res.json({ ok: true });
 });
 
+router.get('/confirmation/:email/:token', async (req, res) => {
+    const token = await tokenService.findAndVerifyToken(req.params.token);
+    userService.verifyUserEmailToken(res, token._userId, req.params.email);
+});
 
 //FACEBOOK LOGIN: 
 
