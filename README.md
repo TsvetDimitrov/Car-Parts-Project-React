@@ -14,6 +14,7 @@
 # Features:
 ### Login/Register/Logout user, save data from the server in the sessionStorage.
 ### Accessible pages: home, buy-out, buy-out-data, create (if admin), about-us, 404
+### Anti Spam - Email confirmation
 
 #Bonuses:
 ### E2E application tests
