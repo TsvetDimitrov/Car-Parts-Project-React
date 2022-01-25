@@ -16,7 +16,7 @@
 ### Accessible pages: home, buy-out, buy-out-data, create (if admin), about-us, 404
 ### Anti Spam - Email confirmation
 
-#Bonuses:
+# Bonuses:
 ### E2E application tests
 
 # TODO:
