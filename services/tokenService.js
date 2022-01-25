@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 const sendgridTransport = require('nodemailer-sendgrid-transport');
 
 const Token = require('../models/Token');
-const { SENDGRID_APIKEY } = require('../config/constants');
 
 
 async function createEmailToken(userId, userEmail, name) {

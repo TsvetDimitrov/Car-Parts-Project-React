@@ -6,7 +6,6 @@ const FacebookStrategy = require('passport-facebook').Strategy;
 const passport = require('passport');
 const path = require('path');
 
-const { PORT, FB_LOGIN } = require('./config/constants');
 const databaseConfig = require('./config/database');
 const routesConfig = require('./config/routes');
 const expressConfig = require('./config/express');
