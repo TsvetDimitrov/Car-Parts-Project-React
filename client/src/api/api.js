@@ -63,7 +63,7 @@ export async function del(url) {
 
 
 export async function login(email, password) {
-    const result = await post(settings.host + '/auth/login', { email, password });
+    const result = await post('http://localhost:3030/api/auth/login', { email, password });
 
     sessionStorage.setItem('name', result.name);
     sessionStorage.setItem('email', result.email);
@@ -76,7 +76,7 @@ export async function login(email, password) {
 
 
 export async function register(name, email, phoneNumber, password) {
-    const result = await post(settings.host + '/auth/register', { name, email, phoneNumber, password });
+    const result = await post('http://localhost:3030/api/auth/register', { name, email, phoneNumber, password });
     sessionStorage.setItem('name', result.name);
     sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('phoneNumber', result.phoneNumber);
@@ -85,7 +85,7 @@ export async function register(name, email, phoneNumber, password) {
 }
 
 export async function logout() {
-    const result = await get(settings.host + '/auth/logout');
+    const result = await get('/api/auth/logout');
 
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('email');

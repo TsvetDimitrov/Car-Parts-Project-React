@@ -14,7 +14,7 @@ const Edit = ({
     useEffect(() => {
         async function checkIfAdminAndGetProducts() {
             try {
-                const isAdmin = await isUserAdmin();
+                await isUserAdmin();
                 let result = await getProductById(productId);
                 setProductData(result);
             } catch (err) {
@@ -105,7 +105,7 @@ const Edit = ({
                         </div>
                         <div className="brand">
                             <span>Марка*</span>
-                            <div classNames="select">
+                            <div className="select">
                                 <select name="brand" id="">
                                     <option selected>{productData.brand}</option>
                                     <optgroup label="A">
@@ -198,7 +198,7 @@ const Edit = ({
                             <span>Година на производство</span>
                             <div className="select">
                                 <select name="yearFrom" id="">
-                                    <option value> {productData.yearFrom}</option>
+                                    <option selected> {productData.yearFrom}</option>
                                     <option></option>
                                     <option value="2021">от 2021г.</option>
                                     <option value="2021">от 2020г.</option>
@@ -314,7 +314,7 @@ const Edit = ({
                             <span>Цвят</span>
                             <div className="select">
                                 <select name="partColor" id="">
-                                    <option value>{productData.partColor}</option>
+                                    <option selected>{productData.partColor}</option>
                                     <option value=""></option>
                                     <option value="Tъмно син">Tъмно син
                                 </option>
