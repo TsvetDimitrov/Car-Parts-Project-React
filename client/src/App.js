@@ -21,8 +21,8 @@ import Edit from './components/Edit/Edit.js';
 import Cart from './components/Cart/Cart.js';
 import CarRequests from './components/CarRequests/CarRequests.js';
 import TermsOfUse from './components/TermsAndConditions/TermsOfUse.js';
-import Navigations from './components/Navigation/Navigations.js';
-import Registers from './components/Register/Registers.js';
+import Navigation from './components/Navigation/Navigation.js';
+import Register from './components/Register/Register.js';
 import Logins from './components/Login/Logins.js';
 
 
@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigations {...userInfo} />
+      <Navigation {...userInfo} />
       {errorMessage &&
         <section id="notifications">
           <div id="errorBox" className="notification" style={errorMessage ? { display: "block" } : { display: "none" }}>
@@ -78,7 +78,7 @@ function App() {
       <carBuyoutContext.Provider value={{ carInfo, setCarInfo }}>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/register" element={<Registers handleClickShowError={handleClickShowError} />} />
+          <Route exact path="/register" element={<Register handleClickShowError={handleClickShowError} />} />
           <Route exact path="/login" element={<Logins onLogin={onLogin} handleClickShowError={handleClickShowError} />} />
           <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
           <Route exact path="/aboutUs" element={<AboutUs />} />
