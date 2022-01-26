@@ -45,6 +45,7 @@ const Navigation = ({
                                 <span className="icon"></span>
                                 <span className="text">Изход</span>
                             </Link>
+                            <Link to="/cart" className="element cart"></Link>
                         </div>
                     ) : (<div className="guest">
                         <Link to="/login" className="element login">
@@ -52,7 +53,7 @@ const Navigation = ({
                             <span className="text">Вход</span>
                         </Link>
                     </div>)}
-                    <Link to="/cart" className="element cart"></Link>
+                    
                 </div>
             </div>
 
