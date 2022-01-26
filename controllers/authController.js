@@ -30,6 +30,10 @@ router.post('/login', async (req, res) => {
     try {
         let userData = await req.auth.login(email, password);
 
+        if(!userData.isEmailVerified){
+            throw new Error('Not verified account. Please check your mail and confirm your account.');
+        }
+
         res.json({
             name: userData.name,
             _id: userData._id,
@@ -40,7 +44,7 @@ router.post('/login', async (req, res) => {
         });
     } catch (err) {
         console.log(err.message);
-        res.status(400).json({
+        res.status(401).json({
             type: 'error',
             ok: false,
             message: err.message,

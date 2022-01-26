@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 const CarCard = ({
     cars
 }) => {
-    console.log(cars);
     return (
         
         <Link to={`/car/${cars._id}`} className="car-item">

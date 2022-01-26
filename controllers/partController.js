@@ -43,7 +43,6 @@ router.get('/getPartsByBrand/:brand', async (req, res) => {
     try {
         const brandNameTitle = req.params.brand;
         let parts = await req.storage.getPartsByBrand(brandNameTitle);
-        console.log(parts);
         return res.status(200).json([parts, brandNameTitle]);
     } catch (err) {
         console.log(err.message);

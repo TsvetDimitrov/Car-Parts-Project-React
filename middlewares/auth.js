@@ -12,7 +12,7 @@ module.exports = () => (req, res, next) => {
     if (parseToken(req, res)) {
         req.auth = {
             async register(name, email, phoneNumber, password) {
-                const { user, token } = await register(name, email, phoneNumber, password);
+                const { user, token } = await register(res, name, email, phoneNumber, password);
                 res.cookie(process.env.COOKIE_NAME, token);
                 return {
                     name: user.name,
@@ -30,6 +30,7 @@ module.exports = () => (req, res, next) => {
                     name: user.name,
                     _id: user._id,
                     email: user.email,
+                    isEmailVerified: user.isEmailVerified,
                     phoneNumber: user.phoneNumber,
                     authToken: token,
                     isAdmin: user.isAdmin,
@@ -57,16 +58,16 @@ module.exports = () => (req, res, next) => {
     }
 };
 
-async function register(name, email, phoneNumber, password) {
+async function register(res, name, email, phoneNumber, password) {
     const existing = await userService.getUserByEmail(email);
 
     if (existing) {
         throw new Error('Вече има съществуващ акаунт с този email адрес!');
     }
-
+    
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await userService.createUser(name, email, phoneNumber, hashedPassword);
-    let tokenEmail = tokenService.createEmailToken(user._id, email, user.name);
+    let tokenEmail = tokenService.createEmailToken(res, user._id, email, user.name);
 
     const token = generateToken(user);
     return { user, token };

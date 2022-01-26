@@ -85,7 +85,7 @@ export async function register(name, email, phoneNumber, password) {
 }
 
 export async function logout() {
-    const result = await get('/api/auth/logout');
+    const result = await get('http://localhost:3030/api/auth/logout');
 
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('email');

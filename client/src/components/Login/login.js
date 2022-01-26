@@ -44,6 +44,7 @@ const Login = ({
         }
 
         try {
+            
             await login(email, password);
             onLogin(email, sessionStorage.getItem('isAdmin'));
             navigate('/');

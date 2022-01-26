@@ -22,7 +22,6 @@ async function getUserByEmail(email) {
 
 
 async function verifyUserEmailToken(res, userId, email) {
-    console.log(userId, email);
     User.findOne({ _id: userId, email: email }, function (err, user) {
         if (!user) {
             return res.status(401).send({ msg: 'We were unable to find a user for this verification. Please SignUp!' });

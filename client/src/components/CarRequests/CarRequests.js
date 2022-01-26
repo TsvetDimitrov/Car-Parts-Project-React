@@ -18,7 +18,7 @@ const CarRequests = () => {
     return (
         <div className="content-cars">
             <div className="cars-list">
-                {cars.map(x => console.log(x))}
+               
 
                 {cars.length === 0 ?
                     <div className="no-items">

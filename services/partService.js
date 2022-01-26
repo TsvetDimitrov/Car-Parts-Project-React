@@ -77,8 +77,6 @@ async function getUserOrders(ids) {
 }
 
 async function removeProductFromCart(user, id) {
-    console.log(user.orders);
-    console.log(id);
     user.orders.pull(id);
     user.save();
 }
