@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './Register.css';
 import { register } from '../../api/data.js';
-const Register = ({ handleClickShowError }) => {
+const Register = ({onLogin, handleClickShowError }) => {
     //TODO ADD class attribute to focused input tag.
     let [addNameClass, setAddNameClass] = useState('');
     let [addEmailClass, setAddEmailClass] = useState('');
@@ -83,6 +83,7 @@ const Register = ({ handleClickShowError }) => {
         }
 
         await register(name, email, telNumber, password);
+        onLogin(email, sessionStorage.getItem('isAdmin'));
         navigate('/potvardi-email');
     }
 

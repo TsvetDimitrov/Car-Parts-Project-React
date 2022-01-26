@@ -79,7 +79,7 @@ function App() {
       <carBuyoutContext.Provider value={{ carInfo, setCarInfo }}>
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/register" element={<Register handleClickShowError={handleClickShowError} />} />
+          <Route exact path="/register" element={<Register  onLogin={onLogin} handleClickShowError={handleClickShowError} />} />
           <Route exact path="/login" element={<Logins onLogin={onLogin} handleClickShowError={handleClickShowError} />} />
           <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
           <Route exact path="/aboutUs" element={<AboutUs />} />
