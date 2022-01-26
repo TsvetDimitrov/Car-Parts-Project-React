@@ -24,6 +24,7 @@ import TermsOfUse from './components/TermsAndConditions/TermsOfUse.js';
 import Navigation from './components/Navigation/Navigation.js';
 import Register from './components/Register/Register.js';
 import Logins from './components/Login/Logins.js';
+import ConfirmEmail from './components/ConfirmEmail/ConfirmEmail.js';
 
 
 function App() {
@@ -94,7 +95,8 @@ function App() {
           <Route exact path="/product/edit/:productId" element={<Edit handleClickShowError={handleClickShowError} />} />
           <Route path="/products" element={<AllProductsCatalog />} />
           <Route path="/car-requests" element={<CarRequests />} />
-          <Route path="usloviya-za-polzvane" element={<TermsOfUse />} />
+          <Route path="/usloviya-za-polzvane" element={<TermsOfUse />} />
+          <Route path="/potvardi-email" element={<ConfirmEmail />}></Route>
         </Routes>
       </carBuyoutContext.Provider >
       <Footer />

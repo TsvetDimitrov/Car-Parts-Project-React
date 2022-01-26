@@ -1,0 +1,12 @@
+.confirmEmail-container{
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+}
+
+@media (min-width: 576px) {
+    .confirmEmail-container {
+        padding: 4rem 2rem;
+    } 
+}

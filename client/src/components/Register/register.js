@@ -83,7 +83,7 @@ const Register = ({ handleClickShowError }) => {
         }
 
         await register(name, email, telNumber, password);
-        navigate('/');
+        navigate('/potvardi-email');
     }
 
     return (
