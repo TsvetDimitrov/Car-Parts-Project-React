@@ -20,11 +20,11 @@
 ### E2E application tests
 
 # TODO:
-### Update the shopping-cart if the user has ordered a part.
-### Add email verification in the back-end.
-### Add payment api.
+### Update the shopping-cart if the user has ordered a part. :heavy_check_mark:
+### Add email verification in the back-end. :heavy_check_mark:
+### Add payment API.
 ### Login with Google or Facebook.
-
+### Update quantity number of ordered products on the cart in navigation tab.
 
 ### I am open to any advices, comments, or issues. Feel free to contact me. 
 
