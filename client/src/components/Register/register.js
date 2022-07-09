@@ -82,7 +82,11 @@ const Register = ({onLogin, handleClickShowError }) => {
             return handleClickShowError('Паролите не съвпадат!');
         }
 
-        await register(name, email, telNumber, password);
+        let registerResponse = await register(name, email, telNumber, password);
+        if (registerResponse.message) {
+            handleClickShowError(registerResponse.message);
+            return;
+        }
         onLogin(email, sessionStorage.getItem('isAdmin'));
         navigate('/potvardi-email');
     }

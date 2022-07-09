@@ -82,6 +82,7 @@ export async function register(name, email, phoneNumber, password) {
     sessionStorage.setItem('phoneNumber', result.phoneNumber);
     sessionStorage.setItem('authToken', result.authToken);
     sessionStorage.setItem('userId', result._id);
+    return result;
 }
 
 export async function logout() {
