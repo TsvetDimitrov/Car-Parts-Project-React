@@ -7,8 +7,6 @@ const Cart = ({ handleClickShowError }) => {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
-
-
     useEffect(() => {
         if (!sessionStorage.getItem('email')) {
             navigate('/login');
@@ -80,6 +78,9 @@ const Cart = ({ handleClickShowError }) => {
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div className="total-price">
+                        
                     </div>
                 </div>
             </div>
