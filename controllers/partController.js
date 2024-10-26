@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
 const { getPartTypeMapping } = require('../utils/utils');
+const { createLabel, getCountries } = require('../services/EcontAPI');
 
 router.post('/create', async (req, res) => {
     try {
@@ -41,6 +42,10 @@ router.get('/getPartsByType/:type', async (req, res) => {
 
 router.get('/getPartsByBrand/:brand', async (req, res) => {
     try {
+        console.log('testtt');
+        var result = await createLabel();
+        // var result2 = await getCountries();
+        console.log('here my friend->', result);
         const brandNameTitle = req.params.brand;
         let parts = await req.storage.getPartsByBrand(brandNameTitle);
         return res.status(200).json([parts, brandNameTitle]);
@@ -55,7 +60,7 @@ router.get('/cart', async (req, res) => {
         await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
         const userOrders = await req.storage.getUserOrders(user.orders);
-        console.log('усерОрдерс >>>>>',
+        console.log('userOrders >>>>>',
             userOrders);
         res.status(200).json({ ok: true, userOrders });
     } catch (err) {
