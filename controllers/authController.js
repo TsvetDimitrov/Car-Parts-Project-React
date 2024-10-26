@@ -30,9 +30,10 @@ router.post('/login', async (req, res) => {
     try {
         let userData = await req.auth.login(email, password);
 
-        if(!userData.isEmailVerified){
-            throw new Error('Not verified account. Please check your mail and confirm your account.');
-        }
+        // Commented out because third party for the verification is not working anymore.
+        // if(!userData.isEmailVerified){
+        //     throw new Error('Not verified account. Please check your mail and confirm your account.');
+        // }
 
         res.json({
             name: userData.name,
