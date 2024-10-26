@@ -1,114 +1,79 @@
-// import axios from 'axios';
-const axios = require('axios');
-
-const demoEcontAPI = 'https://demo.econt.com/ee/services';
-const APIusername = 'iasp-dev';
-const APIpassword = '1Asp-dev';
-const testBody = {
+const DEMO_ECONT_API = 'https://demo.econt.com/ee/services';
+const API_USERNAME = 'iasp-dev';
+const API_PASSWORD = '1Asp-dev';
+const EXAMPLE_BODY = {
     "label": {
-        "shipmentNumber": null,
-        "storageOfficeName": null,
-        "storagePersonName": null,
-        "createdTime": 1729968263000,
-        "sendTime": null,
-        "deliveryTime": null,
-        "shipmentType": "pack",
-        "packCount": 1,
-        "shipmentDescription": "обувки",
-        "weight": 5,
-        "senderDeliveryType": null,
-        "senderClient": null,
-        "senderAgent": null,
-        "senderOfficeCode": null,
-        "senderAddress": null,
-        "receiverDeliveryType": null,
-        "receiverClient": null,
-        "receiverAgent": null,
-        "receiverOfficeCode": null,
-        "receiverAddress": null,
-        "cdCollectedAmount": 0,
-        "cdCollectedCurrency": "",
-        "cdCollectedTime": null,
-        "cdPaidAmount": 0,
-        "cdPaidCurrency": "",
-        "cdPaidTime": null,
-        "totalPrice": 11.96,
-        "currency": "BGN",
-        "discountPercent": 0,
-        "discountAmount": -0,
-        "discountDescription": "",
-        "senderDueAmount": 11.96,
-        "receiverDueAmount": 0,
-        "otherDueAmount": 0,
-        "deliveryAttemptCount": 0,
-        "previousShipmentNumber": "",
-        "services": [
-            {
-                "type": "C",
-                "description": "Куриерска услуга - градски куриер до 5 кг",
-                "count": 1,
-                "paymentSide": "SENDER",
-                "price": 11.96,
-                "currency": "BGN"
-            }
-        ],
-        "lastProcessedInstruction": null,
-        "nextShipments": [],
-        "trackingEvents": [],
-        "pdfURL": "",
-        "expectedDeliveryDate": 1730066400000,
-        "returnShipmentURL": null,
-        "rejectOriginalParcelPaySide": null,
-        "rejectReturnParcelPaySide": null,
-        "shipmentEdition": {
-            "shipmentNum": 0,
-            "editionNum": 0,
-            "editionType": "",
-            "editionError": "",
-            "price": "",
-            "currency": ""
+        "senderClient": {
+            "name": "Иван Иванов",
+            "phones": ["0888888888"]
         },
-        "previousShipment": null,
-        "warnings": "",
-        "shortDeliveryStatus": null,
-        "shortDeliveryStatusEn": null
+        "senderAddress": {
+            "city": {
+                "country": {
+                    "code3": "BGR"
+                },
+                "name": "Русе",
+                "postCode": "7012"
+            },
+            "street": "Алея Младост",
+            "num": "7"
+        },
+        "receiverClient": {
+            "name": "Димитър Димитров",
+            "phones": ["0876543210"]
+        },
+        "receiverAddress": {
+            "city": {
+                "country": {
+                    "code3": "BGR"
+                },
+                "name": "Русе",
+                "postCode": "7010"
+            },
+            "street": "Муткурова",
+            "num": "84",
+            "other": "бл. 5, вх. А, ет. 6"
+        },
+        "packCount": 1,
+        "shipmentType": "PACK",
+        "weight": 5,
+        "shipmentDescription": "обувки"
     },
-    "blockingPaymentURL": null,
-    "courierRequestID": null,
-    "payAfterAcceptIgnored": null
+    "mode": "validate"
 }
 
 function createLabel() {
-    axios.post('https://demo.econt.com/ee/services/Shipments/LabelService.createLabel.json', JSON.stringify(testBody))
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(EXAMPLE_BODY)
+    };
+
+    var result = fetch(`https://demo.econt.com/ee/services/Shipments/LabelService.createLabel.json`, options)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+
+
+    return result;
 }
 
-async function getCountries() {
-    try {
-        const URL = `${demoEcontAPI}/Nomenclatures/NomenclaturesService.getCountries.json`;
-        var data;
-        const response = await axios.get(URL, {
-            auth: {
-                username: "iasp-dev",
-                password: "1Asp-dev"
-            }
-        }).then(function (response) {
-            console.log('SUCCESS ', response);
-            data = response;
-        }).catch(function (error) {
-            console.log('ERRRROOORRRR ', error);
-        });
+function getCountries() {
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
 
-        return {data: data};
-    } catch (error) {
-        const message = typeof error === 'string' ? error : error.message;
-        return { error: message };
-    }
+    var test = fetch(`${DEMO_ECONT_API}/Nomenclatures/NomenclaturesService.getCountries.json`, options)
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error(error));
+
+    console.log(test);
 }
 
 
