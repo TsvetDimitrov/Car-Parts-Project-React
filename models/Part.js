@@ -13,7 +13,7 @@ const partSchema = new mongoose.Schema({
     imageUrl: { type: String },
     condition: { type: String },
     title: { type: String },
-    price: { type: String, required: [true, 'Price is required!'] },
+    price: { type: Number, required: [true, 'Price is required!'] },
     orderedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', default: [] }],
 }, { timestamps: true });
 
