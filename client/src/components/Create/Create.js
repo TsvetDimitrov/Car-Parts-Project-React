@@ -1071,12 +1071,13 @@ function Create({ handleClickShowError }) {
         const condition = e.target.condition.value.trim();
         const title = e.target.title.value.trim();
         const price = e.target.price.value.trim();
+        const weight = e.target.price.value.trim();
 
-        if (!category || !type || !brand || !model || !title || !price) {
-            return handleClickShowError('Category, type, brand, model, title and price са задължителни!');
+        if (!category || !type || !brand || !model || !title || !price || !weight) {
+            return handleClickShowError('Category, type, brand, model, weight, title and price са задължителни!');
         }
 
-        await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price);
+        await createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price, weight);
         navigate('/');
     }
 
@@ -1328,87 +1329,87 @@ function Create({ handleClickShowError }) {
                             <select name="partColor" id="">
                                 <option value=""></option>
                                 <option value="Tъмно син">Tъмно син
-                            </option>
+                                </option>
                                 <option value="Банан">Банан
-                            </option>
+                                </option>
                                 <option value="Беата">Беата
-                            </option>
+                                </option>
                                 <option value="Бежов">Бежов
-                            </option>
+                                </option>
                                 <option value="Бордо">Бордо
-                            </option>
+                                </option>
                                 <option value="Бронз">Бронз
-                            </option>
+                                </option>
                                 <option value="Бял">Бял
-                            </option>
+                                </option>
                                 <option value="Винен">Винен
-                            </option>
+                                </option>
                                 <option value="Виолетов">Виолетов
-                            </option>
+                                </option>
                                 <option value="Вишнев">Вишнев
-                            </option>
+                                </option>
                                 <option value="Графит">Графит
-                            </option>
+                                </option>
                                 <option value="Жълт">Жълт
-                            </option>
+                                </option>
                                 <option value="Зелен">Зелен
-                            </option>
+                                </option>
                                 <option value="Златист">Златист
-                            </option>
+                                </option>
                                 <option value="Кафяв">Кафяв
-                            </option>
+                                </option>
                                 <option value="Керемиден">Керемиден
-                            </option>
+                                </option>
                                 <option value="Кремав">Кремав
-                            </option>
+                                </option>
                                 <option value="Лилав">Лилав
-                            </option>
+                                </option>
                                 <option value="Металик">Металик
-                            </option>
+                                </option>
                                 <option value="Оранжев">Оранжев
-                            </option>
+                                </option>
                                 <option value="Охра">Охра
-                            </option>
+                                </option>
                                 <option value="Пепеляв">Пепеляв
-                            </option>
+                                </option>
                                 <option value="Перла">Перла
-                            </option>
+                                </option>
                                 <option value="Пясъчен">Пясъчен
-                            </option>
+                                </option>
                                 <option value="Резидав">Резидав
-                            </option>
+                                </option>
                                 <option value="Розов">Розов
-                            </option>
+                                </option>
                                 <option value="Сахара">Сахара
-                            </option>
+                                </option>
                                 <option value="Светло сив">Светло сив
-                            </option>
+                                </option>
                                 <option value="Светло син">Светло син
-                            </option>
+                                </option>
                                 <option value="Сив">Сив
-                            </option>
+                                </option>
                                 <option value="Син">Син
-                            </option>
+                                </option>
                                 <option value="Слонова кост">Слонова кост
-                            </option>
+                                </option>
                                 <option value="Сребърен">Сребърен
-                            </option>
+                                </option>
                                 <option value="Т.зелен">Тъмно зелен
-                            </option>
+                                </option>
                                 <option value="Тъмно сив">Тъмно сив
-                            </option>
+                                </option>
                                 <option value="Тъмно син мет.">Тъмно син мет.
-                            </option>
+                                </option>
                                 <option value="Тъмно червен">Тъмно червен
-                            </option>
+                                </option>
                                 <option value="Тютюн">Тютюн
-                            </option>
+                                </option>
                                 <option value="Хамелеон">Хамелеон
-                            </option>
+                                </option>
                                 <option value="Червен">Червен
-                            </option>
+                                </option>
                                 <option value="Черен">Черен
-                            </option>
+                                </option>
                             </select>
                         </div>
                     </div>
@@ -1432,6 +1433,12 @@ function Create({ handleClickShowError }) {
                         <span>Заглавие *</span>
                         <div className="select">
                             <input type="text" placeholder="" name="title" />
+                        </div>
+                    </div>
+                    <div className="weight">
+                        <span>Тегло *</span>
+                        <div className="select">
+                            <input type="text" placeholder="" name="weight" />
                         </div>
                     </div>
                     <div className="price">
