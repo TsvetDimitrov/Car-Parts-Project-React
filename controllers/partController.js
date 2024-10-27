@@ -42,10 +42,6 @@ router.get('/getPartsByType/:type', async (req, res) => {
 
 router.get('/getPartsByBrand/:brand', async (req, res) => {
     try {
-        console.log('testtt');
-        var result = await createLabel();
-        // var result2 = await getCountries();
-        console.log('here my friend->', result);
         const brandNameTitle = req.params.brand;
         let parts = await req.storage.getPartsByBrand(brandNameTitle);
         return res.status(200).json([parts, brandNameTitle]);
@@ -60,13 +56,11 @@ router.get('/cart', async (req, res) => {
         await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
         const userOrders = await req.storage.getUserOrders(user.orders);
-        console.log('userOrders >>>>>',
-            userOrders);
-        res.status(200).json({ ok: true, userOrders });
+        const EcontAPIResponse = await createLabel(userOrders);
+        res.status(200).json({ ok: true, userOrders, EcontAPIResponse });
     } catch (err) {
         console.log(err.message);
         res.status(400).json({ ok: false, message: err.message });
-
     }
 });
 
