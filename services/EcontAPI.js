@@ -1,7 +1,7 @@
 const DEMO_ECONT_API = 'https://demo.econt.com/ee/services';
 const API_USERNAME = 'iasp-dev';
 const API_PASSWORD = '1Asp-dev';
-const EXAMPLE_BODY = {
+let EXAMPLE_BODY = {
     "label": {
         "senderClient": {
             "name": "Иван Иванов",
@@ -42,7 +42,10 @@ const EXAMPLE_BODY = {
     "mode": "validate"
 }
 
-function createLabel() {
+async function createLabel(basket) {
+    EXAMPLE_BODY.label.weight = basket[0].weight;
+    EXAMPLE_BODY.label.shipmentDescription = basket[0].type;
+
     const options = {
         method: 'POST',
         headers: {
@@ -51,13 +54,14 @@ function createLabel() {
         body: JSON.stringify(EXAMPLE_BODY)
     };
 
-    var result = fetch(`https://demo.econt.com/ee/services/Shipments/LabelService.createLabel.json`, options)
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
 
-
-    return result;
+    try {
+        const result = await fetch(`https://demo.econt.com/ee/services/Shipments/LabelService.createLabel.json`, options)
+        const response = await result.json();
+        return response;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 function getCountries() {
