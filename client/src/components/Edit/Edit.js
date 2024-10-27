@@ -52,11 +52,12 @@ const Edit = ({
         const condition = formData.get('condition').trim();
         const title = formData.get('title').trim();
         const price = formData.get('price').trim();
+        const weight = formData.get('weight').trim();
 
-        if (!category || !type || !brand || !model || !title || !price) {
-            return handleClickShowError('Category, type, brand, model, title and price са задължителни!');
+        if (!category || !type || !brand || !model || !title || !price || !weight) {
+            return handleClickShowError('Category, type, brand, model, title, weight and price са задължителни!');
         }
-        await editPartById(category, type, brand, model, Number(yearFrom), Number(yearTo), engineType, partColor, imageUrl, condition, title, price, productId);
+        await editPartById(category, type, brand, model, Number(yearFrom), Number(yearTo), engineType, partColor, imageUrl, condition, title, price, productId, weight);
         navigate(`/product/${productId}`);
     }
 
@@ -424,7 +425,12 @@ const Edit = ({
                                 <input type="text" placeholder="" name="title" value={productData.title} onChange={handleChange} />
                             </div>
                         </div>
-
+                        <div className="weight">
+                            <span>Тегло *</span>
+                            <div className="select">
+                                <input type="text" placeholder="" name="weight" value={productData.weight} onChange={handleChange} />
+                            </div>
+                        </div>
                         <div className="price">
                             <span>Цена *</span>
                             <div className="select">

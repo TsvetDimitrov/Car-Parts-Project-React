@@ -14,6 +14,7 @@ const partSchema = new mongoose.Schema({
     condition: { type: String },
     title: { type: String },
     price: { type: Number, required: [true, 'Price is required!'] },
+    weight: { type: Number, required: [true, 'Weight is required!'] },
     orderedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User', default: [] }],
 }, { timestamps: true });
 
