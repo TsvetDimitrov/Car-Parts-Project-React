@@ -21,8 +21,8 @@ export async function isUserAdmin() {
     return result;
 }
 
-export async function createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price) {
-    const result = await api.post(host + '/api/parts/create', { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price });
+export async function createPart(category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price, weight) {
+    const result = await api.post(host + '/api/parts/create', { category, type, brand, model, yearFrom, yearTo, engineType, partColor, imageUrl, condition, title, price, weight });
     return result;
 }
 
