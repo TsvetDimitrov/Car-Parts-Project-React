@@ -5,6 +5,7 @@ import './Cart.css';
 
 const Cart = ({ handleClickShowError }) => {
     const [products, setProducts] = useState([]);
+    const [shippingPrice, setShippingPRice] = useState(1);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,6 +18,8 @@ const Cart = ({ handleClickShowError }) => {
         getUserCartProducts()
             .then(result => {
                 setProducts(result.userOrders);
+                let productsPrice = result.userOrders.reduce((acc, current) => acc + current.price, 0);
+                setShippingPRice(result.EcontAPIResponse.label.totalPrice + productsPrice);
             })
     }, [handleClickShowError, navigate]);
 
@@ -79,8 +82,15 @@ const Cart = ({ handleClickShowError }) => {
                             </table>
                         </div>
                     </div>
+                </div>
+                <div class="shipping-wrapper">
                     <div className="total-price">
-                        
+                        <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
+                            width="130" height="130" data-loaded="true">
+                            <source type="image/webp" srcSet="/images/econt_icon.webp" />
+                            <img alt="Econt image" />
+                        </picture>
+                        <span>Общо цена с доставка: <strong>{shippingPrice}лв.</strong></span>
                     </div>
                 </div>
             </div>
