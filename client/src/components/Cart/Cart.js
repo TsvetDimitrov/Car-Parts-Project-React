@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { getUserCartProducts, removeProductFromCart } from '../../api/data.js';
+import { getUserCartProducts, removeProductFromCart, getCartDeliveryMethod } from '../../api/data.js';
 import './Cart.css';
 
 const Cart = ({ handleClickShowError }) => {
     const [products, setProducts] = useState([]);
-    const [shippingPrice, setShippingPRice] = useState(1);
+    const [shippingPrice, setShippingPrice] = useState(1);
     const navigate = useNavigate();
+    const spinner = document.querySelector('.spinner-container');
 
     useEffect(() => {
+
         if (!sessionStorage.getItem('email')) {
             navigate('/login');
             handleClickShowError('Моля, влезте в профила си!');
@@ -18,19 +20,33 @@ const Cart = ({ handleClickShowError }) => {
         getUserCartProducts()
             .then(result => {
                 setProducts(result.userOrders);
-                let productsPrice = result.userOrders.reduce((acc, current) => acc + current.price, 0);
-                setShippingPRice(result.EcontAPIResponse.label.totalPrice + productsPrice);
             })
     }, [handleClickShowError, navigate]);
 
     async function deleteProductFromCart(e) {
-
         e.preventDefault();
         const table = e.target.parentNode.parentNode;
         const id = table.querySelector('.product-title-text').href.split('/')[4];
         await removeProductFromCart(id);
         setProducts([...products].filter(product => product._id !== id));
         // table.remove();
+    }
+
+    async function setDelivery(e) {
+        if (!products.length) {
+            return;
+        }
+        spinner.style.display = 'block';
+        await getCartDeliveryMethod(e.target.value)
+            .then(result => {
+                if (e.target.value === 'Speedy' && result) {
+                    setShippingPrice(result.deliveryResponse.price.total + result.totalProductsPrice);
+                } else if (e.target.value === 'Econt' && result) {
+                    setShippingPrice(result.deliveryResponse.label.totalPrice + result.totalProductsPrice);
+                }
+                document.querySelector('.total-price').style.display = 'flex';
+            });
+        spinner.style.display = 'none';
     }
 
     return (
@@ -83,16 +99,36 @@ const Cart = ({ handleClickShowError }) => {
                         </div>
                     </div>
                 </div>
-                <div class="shipping-wrapper">
+                <div className="shipping-wrapper">
+                    <div className="options" onChange={setDelivery}>
+                        <h3>Избери метод за доставка</h3>
+                        <div className="deliveryOption">
+                            <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
+                                width="80" height="80" data-loaded="true">
+                                <source type="image/webp" srcSet="/images/speedy.png" />
+                                <img alt="Econt image" />
+                            </picture>
+                            <input type="radio" value="Speedy" name="gender" id="speedy" />
+                            <label htmlFor="speedy">Speedy</label>
+                        </div>
+                        <div className="deliveryOption">
+                            <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
+                                width="80" height="80" data-loaded="true">
+                                <source type="image/webp" srcSet="/images/econt_icon.webp" />
+                                <img alt="Econt image" />
+                            </picture>
+                            <input type="radio" value="Econt" name="gender" id="econt" />
+                            <label htmlFor="econt">Econt</label>
+                        </div>
+                    </div>
                     <div className="total-price">
-                        <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
-                            width="130" height="130" data-loaded="true">
-                            <source type="image/webp" srcSet="/images/econt_icon.webp" />
-                            <img alt="Econt image" />
-                        </picture>
                         <span>Общо цена с доставка: <strong>{shippingPrice}лв.</strong></span>
                     </div>
+                    <div className="spinner-container">
+                        <div className="spinner"></div>
+                    </div>
                 </div>
+
             </div>
         </div>)
 }

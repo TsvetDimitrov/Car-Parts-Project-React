@@ -67,7 +67,7 @@ async function editPartById(id, partData) {
     part.condition = partData.condition;
     part.title = partData.title;
     part.price = partData.price;
-
+    // Add part.weight  = partData.weight;
     return part.save();
 }
 

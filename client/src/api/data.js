@@ -71,6 +71,10 @@ export async function createCarBuyOutRequest(carData) {
     return await api.post(host + '/api/carRequests', carData);
 }
 
-export async function getCarRequests(){
+export async function getCarRequests() {
     return await api.get(host + '/api/carRequests');
+}
+
+export async function getCartDeliveryMethod(delivery) {
+    return await api.post(host + '/api/getDelivery', { delivery });
 }

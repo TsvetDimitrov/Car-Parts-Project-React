@@ -1,3 +1,5 @@
+// TODO: This should be transformed into JSON file.
+
 const typeMap = {
     'cd-cheindjyri': 'CD Чейнджъри',
     'dvd-tv-priemnici': 'DVD и TV приемници',

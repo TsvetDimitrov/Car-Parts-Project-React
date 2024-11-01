@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
 const { getPartTypeMapping } = require('../utils/utils');
-const { createLabel, getCountries } = require('../services/EcontAPI');
-
 router.post('/create', async (req, res) => {
     try {
         await req.storage.createPart(req.body);
@@ -56,15 +54,12 @@ router.get('/cart', async (req, res) => {
         await req.auth.getToken();
         const user = await userService.getUserByEmail(req.user.email);
         const userOrders = await req.storage.getUserOrders(user.orders);
-        const EcontAPIResponse = await createLabel(userOrders);
-        res.status(200).json({ ok: true, userOrders, EcontAPIResponse });
+        res.status(200).json({ ok: true, userOrders });
     } catch (err) {
         console.log(err.message);
         res.status(400).json({ ok: false, message: err.message });
     }
 });
-
-
 
 router.get('/:id', async (req, res) => {
     try {
