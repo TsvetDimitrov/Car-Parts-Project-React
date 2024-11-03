@@ -1,18 +1,29 @@
-.content-cars .text{
+.content-cars .text {
     text-align: center;
     margin-bottom: 10px;
 }
 
-.content-cars .no-items{
+.content-cars .no-items {
     text-align: center;
     font-size: 27px;
     font-style: italic;
 }
 
-.content-cars .icon{
+.content-cars .icon {
     display: block;
     height: 100px;
     background: url(data:image/png;base64,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) no-repeat center center;
     text-align: center;
     vertical-align: middle;
+}
+
+
+.cars-list {
+    padding: 30px;
+
+    img {
+        width: 300px;
+        position: relative;
+        display: block;
+    }
 }
