@@ -20,10 +20,14 @@
 
 .cars-list {
     padding: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
 
     img {
         width: 300px;
         position: relative;
         display: block;
+        height: 230px;
     }
 }
