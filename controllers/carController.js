@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-
 router.post('/', async (req, res) => {
     try {
         await req.auth.getToken();

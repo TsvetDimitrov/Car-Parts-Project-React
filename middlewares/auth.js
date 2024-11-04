@@ -1,12 +1,10 @@
 require('dotenv').config();
 
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const userService = require('../services/userService');
 const tokenService = require('../services/tokenService');
-
 
 module.exports = () => (req, res, next) => {
     if (parseToken(req, res)) {
@@ -64,14 +62,13 @@ async function register(res, name, email, phoneNumber, password) {
     if (existing) {
         throw new Error('Вече има съществуващ акаунт с този email адрес!');
     }
-    
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = await userService.createUser(name, email, phoneNumber, hashedPassword);
     let tokenEmail = tokenService.createEmailToken(res, user._id, email, user.name);
 
     const token = generateToken(user);
     return { user, token };
-
 }
 
 async function login(email, password) {
@@ -87,13 +84,12 @@ async function login(email, password) {
         const err = new Error('Грешна парола!');
         err.type = 'credential';
         throw err;
-    }else if(!user.isVerified){
+    } else if (!user.isVerified) {
         const err = new Error('Вашият имейл адрес не е потвърден. Моля потвърдете го и пробвайте отново!');
         err.type = 'unverified email';
     }
     const token = generateToken(user);
     return { user, token };
-
 }
 
 

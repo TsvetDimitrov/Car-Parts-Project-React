@@ -9,7 +9,6 @@ async function createUser(name, email, phoneNumber, password) {
     });
 
     await user.save();
-
     return user;
 }
 
@@ -19,7 +18,6 @@ async function getUserByEmail(email) {
 
     return user;
 }
-
 
 async function verifyUserEmailToken(res, userId, email) {
     User.findOne({ _id: userId, email: email }, function (err, user) {
@@ -38,11 +36,8 @@ async function verifyUserEmailToken(res, userId, email) {
 
             });
         }
-
-
     });
 }
-
 
 module.exports = {
     createUser,

@@ -185,7 +185,7 @@ function getCountries() {
     var responseData;
     fetch(`https://demo.econt.com/ee/services/Nomenclatures/NomenclaturesService.getCountries.json`, options)
         .then(response => console.log(response))
-        .then(data => {responseData = data})
+        .then(data => { responseData = data })
         .catch(error => console.error(error));
 
     console.log(responseData);
