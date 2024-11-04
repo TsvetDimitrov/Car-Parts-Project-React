@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
 const { getPartTypeMapping } = require('../utils/utils');
+
 router.post('/create', async (req, res) => {
     try {
         await req.storage.createPart(req.body);
@@ -142,8 +143,5 @@ router.post('/cart/delete/:id', async (req, res) => {
         res.status(400).json({ ok: false, message: err.message });
     }
 });
-
-
-
 
 module.exports = router;

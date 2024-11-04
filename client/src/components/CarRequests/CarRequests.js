@@ -7,7 +7,6 @@ import "./CarRequests.css";
 const CarRequests = () => {
     const [cars, setCars] = useState([]);
 
-
     useEffect(() => {
         getCarRequests()
             .then(result => {
@@ -18,7 +17,7 @@ const CarRequests = () => {
     return (
         <div className="content-cars">
             <div className="cars-list">
-               
+
 
                 {cars.length === 0 ?
                     <div className="no-items">
@@ -31,6 +30,5 @@ const CarRequests = () => {
         </div>
     )
 }
-
 
 export default CarRequests;

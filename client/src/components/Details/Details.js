@@ -6,7 +6,6 @@ import Benefits from '../Benefits/Benefits.js';
 
 const Details = ({ handleClickShowError }) => {
     const navigate = useNavigate();
-
     const [product, setProduct] = useState({});
     const { productId } = useParams();
     useEffect(() => {
@@ -16,7 +15,6 @@ const Details = ({ handleClickShowError }) => {
         }
         getProduct();
     }, [productId]);
-    console.log(product);
     const isAdmin = sessionStorage.getItem('isAdmin');
 
     async function addCartProduct() {
@@ -50,7 +48,6 @@ const Details = ({ handleClickShowError }) => {
             handleClickShowError(err.message);
         }
     }
-
 
     return (
         <div>
@@ -134,7 +131,6 @@ const Details = ({ handleClickShowError }) => {
                                 </button>
                             </div>
                         </div> : ''}
-
                     </div>
                 </div>
             </div>

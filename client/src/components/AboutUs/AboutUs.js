@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 import Benefits from "../Benefits/Benefits";
 import './AboutUs.css';
 
-
 function AboutUs() {
-
-
     return (
         <div id="aboutUsPage">
             <div className="aboutUsHeader">
@@ -33,9 +30,7 @@ function AboutUs() {
             </div>
             <Benefits />
         </div>
-
     )
 }
-
 
 export default AboutUs;

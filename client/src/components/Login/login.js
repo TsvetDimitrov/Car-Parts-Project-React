@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import { login } from '../../api/data.js';
 
-
 const Login = ({
     onLogin,
     handleClickShowError
@@ -44,7 +43,6 @@ const Login = ({
         }
 
         try {
-            
             await login(email, password);
             onLogin(email, sessionStorage.getItem('isAdmin'));
             navigate('/');
@@ -52,8 +50,6 @@ const Login = ({
         } catch (err) {
             handleClickShowError(err.message);
         }
-
-        
     };
 
     return (

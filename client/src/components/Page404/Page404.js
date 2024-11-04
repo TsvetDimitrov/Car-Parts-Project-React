@@ -10,7 +10,6 @@ function Page404() {
                 <span className="text">Назад към сайта</span>
             </Link>
         </div>
-
     )
 }
 

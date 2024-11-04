@@ -53,7 +53,6 @@ router.post('/login', async (req, res) => {
     }
 });
 
-
 router.get('/logout', async (req, res) => {
     console.log('Logging out...');
     req.auth.logout();
@@ -66,7 +65,6 @@ router.get('/confirmation/:email/:token', async (req, res) => {
 });
 
 //FACEBOOK LOGIN: 
-
 router.get('/facebook',
     passport.authenticate('facebook'),
     function (req, res) {
