@@ -130,7 +130,6 @@ let example_body_multiple = {
     "mode": "validate"
 }
 
-
 async function createLabel(basket) {
     example_body.label.weight = basket[0].weight;
     example_body.label.shipmentDescription = basket[0].type;
