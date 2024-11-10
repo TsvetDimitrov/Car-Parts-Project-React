@@ -44,7 +44,7 @@ const Cart = ({ handleClickShowError }) => {
                     setShippingPrice(result.deliveryResponse.price.total);
                     setTotalPrice(result.deliveryResponse.price.total + result.totalProductsPrice);
                 } else if (e.target.value === 'Econt' && result) {
-                    setShippingPrice(result.deliveryResponse.price.total);
+                    setShippingPrice(result.deliveryResponse.label.totalPrice);
                     setTotalPrice(result.deliveryResponse.label.totalPrice + result.totalProductsPrice);
                 }
                 document.querySelector('.shipping-price').style.display = 'flex';
