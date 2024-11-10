@@ -5,6 +5,7 @@ import './Cart.css';
 
 const Cart = ({ handleClickShowError }) => {
     const [products, setProducts] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(1);
     const [shippingPrice, setShippingPrice] = useState(1);
     const navigate = useNavigate();
     const spinner = document.querySelector('.spinner-container');
@@ -40,10 +41,13 @@ const Cart = ({ handleClickShowError }) => {
         await getCartDeliveryMethod(e.target.value)
             .then(result => {
                 if (e.target.value === 'Speedy' && result) {
-                    setShippingPrice(result.deliveryResponse.price.total + result.totalProductsPrice);
+                    setShippingPrice(result.deliveryResponse.price.total);
+                    setTotalPrice(result.deliveryResponse.price.total + result.totalProductsPrice);
                 } else if (e.target.value === 'Econt' && result) {
-                    setShippingPrice(result.deliveryResponse.label.totalPrice + result.totalProductsPrice);
+                    setShippingPrice(result.deliveryResponse.price.total);
+                    setTotalPrice(result.deliveryResponse.label.totalPrice + result.totalProductsPrice);
                 }
+                document.querySelector('.shipping-price').style.display = 'flex';
                 document.querySelector('.total-price').style.display = 'flex';
             });
         spinner.style.display = 'none';
@@ -121,8 +125,11 @@ const Cart = ({ handleClickShowError }) => {
                             <label htmlFor="econt">Econt</label>
                         </div>
                     </div>
+                    <div className="shipping-price">
+                        <span>Доставка: <strong>{shippingPrice}лв.</strong></span>
+                    </div>
                     <div className="total-price">
-                        <span>Общо цена с доставка: <strong>{shippingPrice}лв.</strong></span>
+                        <span>Общо цена с доставка: <strong>{totalPrice}лв.</strong></span>
                     </div>
                     <div className="spinner-container">
                         <div className="spinner"></div>
