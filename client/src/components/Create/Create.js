@@ -1071,7 +1071,7 @@ function Create({ handleClickShowError }) {
         const condition = e.target.condition.value.trim();
         const title = e.target.title.value.trim();
         const price = e.target.price.value.trim();
-        const weight = e.target.price.value.trim();
+        const weight = e.target.weightd.value.trim();
 
         if (!category || !type || !brand || !model || !title || !price || !weight) {
             return handleClickShowError('Category, type, brand, model, weight, title and price са задължителни!');

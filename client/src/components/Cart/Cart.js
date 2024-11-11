@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { getUserCartProducts, removeProductFromCart, getCartDeliveryMethod } from '../../api/data.js';
+import { getUserCartProducts, removeProductFromCart, getCartDeliveryMethod, getClientSecret } from '../../api/data.js';
 import './Cart.css';
 
 const Cart = ({ handleClickShowError }) => {
     const [products, setProducts] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(1);
     const [shippingPrice, setShippingPrice] = useState(1);
     const navigate = useNavigate();
     const spinner = document.querySelector('.spinner-container');
 
     useEffect(() => {
-
         if (!sessionStorage.getItem('email')) {
             navigate('/login');
             handleClickShowError('Моля, влезте в профила си!');
@@ -20,7 +20,7 @@ const Cart = ({ handleClickShowError }) => {
         getUserCartProducts()
             .then(result => {
                 setProducts(result.userOrders);
-            })
+            });
     }, [handleClickShowError, navigate]);
 
     async function deleteProductFromCart(e) {
@@ -40,11 +40,22 @@ const Cart = ({ handleClickShowError }) => {
         await getCartDeliveryMethod(e.target.value)
             .then(result => {
                 if (e.target.value === 'Speedy' && result) {
-                    setShippingPrice(result.deliveryResponse.price.total + result.totalProductsPrice);
+                    setShippingPrice(result.deliveryResponse.price.total);
+                    setTotalPrice(result.deliveryResponse.price.total + result.totalProductsPrice);
                 } else if (e.target.value === 'Econt' && result) {
-                    setShippingPrice(result.deliveryResponse.label.totalPrice + result.totalProductsPrice);
+                    if (products.length > 1) {
+                        let totalProductsShippingPrice = result.deliveryResponse.results.reduce((accumulator, currentValue) => accumulator + currentValue.label.totalPrice, 0);
+                        setShippingPrice(totalProductsShippingPrice.toFixed(2));
+                        setTotalPrice(totalProductsShippingPrice + result.totalProductsPrice);
+                    } else {
+                        setShippingPrice(result.deliveryResponse.label.totalPrice);
+                        setTotalPrice(result.deliveryResponse.label.totalPrice + result.totalProductsPrice);
+                    }
                 }
+                document.querySelector('.shipping-price').style.display = 'flex';
                 document.querySelector('.total-price').style.display = 'flex';
+                document.querySelector('.continue-to-checkout-btn').style.display = 'flex';
+
             });
         spinner.style.display = 'none';
     }
@@ -121,12 +132,21 @@ const Cart = ({ handleClickShowError }) => {
                             <label htmlFor="econt">Econt</label>
                         </div>
                     </div>
+                    <div className="shipping-price">
+                        <span>Доставка: <strong>{shippingPrice}лв.</strong></span>
+                    </div>
                     <div className="total-price">
-                        <span>Общо цена с доставка: <strong>{shippingPrice}лв.</strong></span>
+                        <span>Общо цена с доставка: <strong>{totalPrice}лв.</strong></span>
                     </div>
                     <div className="spinner-container">
                         <div className="spinner"></div>
                     </div>
+                </div>
+
+                <div className="continue-to-checkout-btn">
+                    <Link to="/checkout" className="checkout">
+                        <span>Продължи към плащане</span>
+                    </Link>
                 </div>
             </div>
         </div>)

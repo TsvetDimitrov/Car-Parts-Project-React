@@ -78,3 +78,7 @@ export async function getCarRequests() {
 export async function getCartDeliveryMethod(delivery) {
     return await api.post(host + '/api/getDelivery', { delivery });
 }
+
+export async function getClientSecret() {
+    return await api.post(host + '/api/create-checkout-session');
+}

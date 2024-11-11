@@ -1,10 +1,11 @@
+const fetch = require('node-fetch');
 const DEMO_ECONT_API = 'https://demo.econt.com/ee/services';
 const API_USERNAME = 'iasp-dev';
 const API_PASSWORD = '1Asp-dev';
 let example_body = {
     "label": {
         "senderClient": {
-            "name": "Иван Иванов",
+            "name": "Tsvetomir Dimitrov",
             "phones": ["0888888888"]
         },
         "senderAddress": {
@@ -42,95 +43,6 @@ let example_body = {
     "mode": "calculate"
 }
 
-let example_body_multiple = {
-    "labels": [
-        {
-            "senderClient": {
-                "name": "Петър Петров",
-                "phones": ["0888888888"]
-            },
-            "senderAddress": {
-                "city": {
-                    "country": {
-                        "code3": "BGR"
-                    },
-                    "name": "Сливен",
-                    "postCode": "8811"
-                },
-                "street": "Граф Игнатиев",
-                "num": "1"
-            },
-            "senderOfficeCode": "8800",
-
-            "receiverClient": {
-                "name": "Димитър Димитров",
-                "phones": ["0876543210"]
-            },
-            "receiverAddress": {
-                "city": {
-                    "country": {
-                        "code3": "BGR"
-                    },
-                    "name": "Русе",
-                    "postCode": "7012"
-                },
-                "street": "Муткурова",
-                "num": "84",
-                "other": "бл. 5, вх. А, ет. 6"
-            },
-            "receiverOfficeCode": "7029",
-
-            "packCount": "1",
-            "shipmentType": "PACK",
-            "weight": "2",
-            "sizeUnder60cm": "1",
-            "shipmentDescription": "маратонки"
-        },
-
-        {
-            "senderClient": {
-                "name": "Георги Георгиев",
-                "phones": ["0777777777"]
-            },
-            "senderAddress": {
-                "city": {
-                    "country": {
-                        "code3": "BGR"
-                    },
-                    "name": "София",
-                    "postCode": "1000"
-                },
-                "street": "Цариградско шосе",
-                "num": "166"
-            },
-            "receiverClient": {
-                "name": "Богдан Богданов",
-                "phones": ["0878787878"]
-            },
-            "receiverAddress": {
-                "city": {
-                    "country": {
-                        "code3": "BGR"
-                    },
-                    "name": "Русе",
-                    "postCode": "7012"
-                },
-                "street": "Славянска",
-                "num": "16",
-                "other": "бл. 1, вх. 1, ет. 1"
-            },
-            "packCount": "1",
-            "shipmentType": "PACK",
-            "weight": "5",
-            "sizeUnder60cm": "1",
-            "shipmentDescription": "дънки"
-        }
-    ],
-    "runAsyncAndEmailResultTo": "",
-    "mode": "validate"
-}
-
-
 async function createLabel(basket) {
     example_body.label.weight = basket[0].weight;
     example_body.label.shipmentDescription = basket[0].type;
@@ -145,7 +57,7 @@ async function createLabel(basket) {
 
 
     try {
-        const result = await fetch(`https://demo.econt.com/ee/services/Shipments/LabelService.createLabel.json`, options)
+        const result = await fetch(`${DEMO_ECONT_API}/Shipments/LabelService.createLabel.json`, options)
         const response = await result.json();
         return response;
     } catch (error) {
@@ -154,20 +66,66 @@ async function createLabel(basket) {
 }
 
 async function createLabels(basket) {
-    // EXAMPLE_BODY.label.weight = basket[0].weight;
-    // EXAMPLE_BODY.label.shipmentDescription = basket[0].type;
+    let body = {
+        labels: [],
+        runAsyncAndEmailResultTo: "",
+        mode: "validate"
+    }
+    for (let i = 0; i < basket.length; i++) {
+        let dataObj = {
+            senderClient: {
+                name: "Tsvetomir Dimitrov",
+                phones: ["0888888888"]
+            },
+            senderAddress: {
+                city: {
+                    country: {
+                        code3: "BGR"
+                    },
+                    name: "Sofia",
+                    postCode: "1000"
+                },
+                street: "Balgarska morava",
+                num: "15"
+            },
+            senderOfficeCode: "1000",
+            receiverClient: {
+                name: "Димитър Димитров",
+                phones: ["0876543210"]
+            },
+            receiverAddress: {
+                city: {
+                    country: {
+                        code3: "BGR"
+                    },
+                    name: "Русе",
+                    postCode: "7012"
+                },
+                street: "Муткурова",
+                num: "84",
+                other: "бл. 5, вх. А, ет. 6"
+            },
+            receiverOfficeCode: "7029",
+            packCount: "1",
+            shipmentType: "PACK",
+            weight: basket[i].weight,
+            sizeUnder60cm: "0",
+            shipmentDescription: basket[i].type
+        }
+
+        body.labels.push(dataObj);
+    }
 
     const options = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(example_body_multiple)
+        body: JSON.stringify(body)
     };
 
-
     try {
-        const result = await fetch(`https://demo.econt.com/ee/services/Shipments/LabelService.createLabel.json`, options)
+        const result = await fetch(`${DEMO_ECONT_API}/Shipments/LabelService.createLabels.json`, options)
         const response = await result.json();
         return response;
     } catch (error) {
@@ -191,9 +149,8 @@ function getCountries() {
     console.log(responseData);
 }
 
-
-
 module.exports = {
     getCountries,
-    createLabel
+    createLabel,
+    createLabels
 }

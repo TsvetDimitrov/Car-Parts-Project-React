@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const userService = require('../services/userService');
 const { createShipmentRequest } = require('../services/SpeedyAPI');
-const { createLabel } = require('../services/EcontAPI');
+const { createLabel, createLabels } = require('../services/EcontAPI');
 
 router.post('/', async (req, res) => {
     try {
@@ -11,7 +11,12 @@ router.post('/', async (req, res) => {
         var deliveryResponse;
         var totalProductsPrice;
         if (req.body.delivery === 'Econt' && userOrders.length) {
-            deliveryResponse = await createLabel(userOrders);
+            if (userOrders.length > 1) {
+                deliveryResponse = await createLabels(userOrders);
+            } else {
+                deliveryResponse = await createLabel(userOrders);
+            }
+
             totalProductsPrice = userOrders.reduce((acc, current) => acc + current.price, 0);
         } else if (req.body.delivery === 'Speedy' && userOrders.length) {
             deliveryResponse = await createShipmentRequest(userOrders);
