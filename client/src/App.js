@@ -25,7 +25,7 @@ import Navigation from './components/Navigation/Navigation.js';
 import Register from './components/Register/Register.js';
 import Logins from './components/Login/Logins.js';
 import ConfirmEmail from './components/ConfirmEmail/ConfirmEmail.js';
-
+import Checkout from './components/Checkout/Checkout.js';
 
 function App() {
   const [userInfo, setUserInfo] = useState({ isAuthenticated: false, email: '', isAdmin: 0 });
@@ -97,6 +97,7 @@ function App() {
           <Route path="/car-requests" element={<CarRequests />} />
           <Route path="/usloviya-za-polzvane" element={<TermsOfUse />} />
           <Route path="/potvardi-email" element={<ConfirmEmail />}></Route>
+          <Route path="/checkout" element={<Checkout/>}></Route>
         </Routes>
       </carBuyoutContext.Provider >
       <Footer />

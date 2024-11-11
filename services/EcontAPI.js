@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 const DEMO_ECONT_API = 'https://demo.econt.com/ee/services';
 const API_USERNAME = 'iasp-dev';
 const API_PASSWORD = '1Asp-dev';
@@ -40,13 +41,6 @@ let example_body = {
         "shipmentDescription": "обувки"
     },
     "mode": "calculate"
-}
-
-let example_body_multiple = {
-    "labels": [
-    ],
-    "runAsyncAndEmailResultTo": "",
-    "mode": "validate"
 }
 
 async function createLabel(basket) {

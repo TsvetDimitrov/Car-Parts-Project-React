@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 const USERNAME = 1996024;
 const PASSWORD = 8443428332;
 const BASE_URL = 'https://api.speedy.bg/v1'

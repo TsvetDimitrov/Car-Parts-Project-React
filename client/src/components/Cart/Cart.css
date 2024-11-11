@@ -189,6 +189,7 @@
         }
     }
 }
+
 .spinner-container {
     display: none;
     height: 100%;
@@ -218,5 +219,23 @@
 @keyframes spinner-zp9dbg {
     to {
         transform: rotate(1turn);
+    }
+}
+
+.continue-to-checkout-btn {
+    display: none;
+    justify-content: end;
+    margin: 15px;
+
+    .checkout {
+        padding: 10px;
+        background: rgb(3, 183, 3);
+        color: white;
+        transition-duration: 0.4s;
+        cursor: pointer;
+
+        &:hover {
+            background: #1df21d;
+        }
     }
 }
