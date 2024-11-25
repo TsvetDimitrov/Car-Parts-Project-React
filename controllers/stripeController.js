@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
             },
         ],
         mode: 'payment',
-        return_url: `http://localhost:3000/return.html?session_id={CHECKOUT_SESSION_ID}`,
+        return_url: `http://localhost:3000/order-summary?session_id={CHECKOUT_SESSION_ID}`,
     });
 
     res.send({ clientSecret: session.client_secret });
