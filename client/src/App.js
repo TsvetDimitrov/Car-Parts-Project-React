@@ -26,18 +26,19 @@ import Register from './components/Register/Register.js';
 import Logins from './components/Login/Logins.js';
 import ConfirmEmail from './components/ConfirmEmail/ConfirmEmail.js';
 import Checkout from './components/Checkout/Checkout.js';
+import OrderSummary from './components/OrderSummary/OrderSummary.js';
 
 function App() {
   const [userInfo, setUserInfo] = useState({ isAuthenticated: false, email: '', isAdmin: 0 });
   const [errorMessage, setErrorMessage] = useState('');
   const [carInfo, setCarInfo] = useState('');
 
-  const handleClickShowError = (msg) => {
+  const handleClickShowError = (msg, timeout = 3000) => {
     setErrorMessage(msg);
 
     setTimeout(() => {
       setErrorMessage();
-    }, 3000);
+    }, timeout);
   }
 
   useEffect(() => {
@@ -68,7 +69,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation {...userInfo} />
+      <Navigation {...userInfo} handleClickShowError={handleClickShowError}/>
       {errorMessage &&
         <section id="notifications">
           <div id="errorBox" className="notification" style={errorMessage ? { display: "block" } : { display: "none" }}>
@@ -83,7 +84,7 @@ function App() {
           <Route exact path="/login" element={<Logins onLogin={onLogin} handleClickShowError={handleClickShowError} />} />
           <Route exact path="/logout" element={<Logout onLogout={onLogout} />} />
           <Route exact path="/aboutUs" element={<AboutUs />} />
-          <Route exact path="/izkupuvane" element={<Buyout />} />
+          <Route exact path="/izkupuvane" element={<Buyout handleClickShowError={handleClickShowError}/>} />
           <Route exact path="/izkupuvane/info" element={<BuyoutInfo />} />
           <Route exact path="/izkupuvane/infopic" element={<BuyoutImages handleClickShowError={handleClickShowError} />} />
           <Route exact path="/create" element={<Create handleClickShowError={handleClickShowError} />} />
@@ -98,6 +99,7 @@ function App() {
           <Route path="/usloviya-za-polzvane" element={<TermsOfUse />} />
           <Route path="/potvardi-email" element={<ConfirmEmail />}></Route>
           <Route path="/checkout" element={<Checkout/>}></Route>
+          <Route path="/order-summary" element={<OrderSummary/>}></Route>
         </Routes>
       </carBuyoutContext.Provider >
       <Footer />

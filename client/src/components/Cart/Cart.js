@@ -114,22 +114,26 @@ const Cart = ({ handleClickShowError }) => {
                     <div className="options" onChange={setDelivery}>
                         <h3>Избери метод за доставка</h3>
                         <div className="deliveryOption">
-                            <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
-                                width="80" height="80" data-loaded="true">
-                                <source type="image/webp" srcSet="/images/speedy.png" />
-                                <img alt="Econt image" />
-                            </picture>
-                            <input type="radio" value="Speedy" name="gender" id="speedy" />
-                            <label htmlFor="speedy">Speedy</label>
+                            <div className="radio-item">
+                                <input name="radio" id="speedy" type="radio" value="Speedy" /><label htmlFor="speedy">                             <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
+                                    width="80" height="80" data-loaded="true">
+                                    <source type="image/webp" srcSet="/images/speedy.png" />
+                                    <img alt="Econt image" />
+                                </picture>Speedy</label>
+                            </div>
                         </div>
                         <div className="deliveryOption">
-                            <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
-                                width="80" height="80" data-loaded="true">
-                                <source type="image/webp" srcSet="/images/econt_icon.webp" />
-                                <img alt="Econt image" />
-                            </picture>
-                            <input type="radio" value="Econt" name="gender" id="econt" />
-                            <label htmlFor="econt">Econt</label>
+
+
+                            <div className="radio-item">
+                                <input name="radio" id="econt" type="radio" value="Econt" /><label htmlFor="econt">
+                                    <picture className="lozad m-auto" style={{ display: 'block', minHeight: '1rem' }} data-alt="Econt image"
+                                        width="80" height="80" data-loaded="true">
+                                        <source type="image/webp" srcSet="/images/econt_icon.webp" />
+                                        <img alt="Econt image" />
+                                    </picture>Econt</label>
+                            </div>
+
                         </div>
                     </div>
                     <div className="shipping-price">

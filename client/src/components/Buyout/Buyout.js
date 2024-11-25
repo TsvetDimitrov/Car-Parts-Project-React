@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './Buyout.css';
 
 function Buyout() {
-
+    
     return (
         <div className="buyout-car-wrapper">
             <div className="header">

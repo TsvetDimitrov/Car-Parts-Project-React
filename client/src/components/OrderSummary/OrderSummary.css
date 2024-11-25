@@ -1,0 +1,22 @@
+.order-summary {
+    width: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 200px 20px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.back-container a {
+    color: black;
+
+    &:hover {
+        color: gray;
+    }
+}
+
+.header {
+    display: flex;
+    gap: 20px;
+}
