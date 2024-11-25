@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import './Navigation.css';
 
-
 const Navigation = ({
     email,
     isAdmin,
+    handleClickShowError
 }) => {
+
+    const handleClick = (e) => {
+        const userEmail = sessionStorage.getItem("email");
+        if (!userEmail) {
+          e.preventDefault();
+          handleClickShowError("Моля, влезте си в профила, за да достъпите тази страница!", 5000);
+        }
+      };
 
     return (
         <div className="topnav">
@@ -15,7 +23,7 @@ const Navigation = ({
                     </Link>
                 </div>
                 <div className="tab">
-                    <Link to="/izkupuvane" className="redemption-car">
+                    <Link to="/izkupuvane" className="redemption-car" onClick={handleClick}>
                         <span className="icon"></span>
                         <span className="text">Продай автомобила си</span>
                     </Link>
